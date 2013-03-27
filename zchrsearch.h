@@ -1,5 +1,5 @@
 /*************************************************************************
-** zstrrmv.h 
+** zChrSearch.h 
 ** Copyright (c) 2012, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 ** 
@@ -29,29 +29,28 @@
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   
 ** 
 ** Description :
-**  C function to remove certain characters from another string
+**  C function that searches the existance of a particular character in
+**  given character string  
 **
 **  Function argumenents:
-**	char *zStrrmv(char *str, char *delim)
-**	- str is the string of char that is subject to character removal
-**	  process
-**  	- token is a string of delimiter characters. If one wishes to use
-**	  comma and undescore as delimiter, then delim = ",_"
+**	int zChrSearch(char *token,char s)
+**	- token is the string of chars in which s will be searched 
+**  	- s is a single character that will be searched within token 
 **
 **  Return values
-**	- NULL returned in case of an error
-**	- On success, the resulting string s returned
+**	- Zero will be returned if either of token or s is NULL or s cannot
+**	  be found in token 
+**	- 1 returned if s is found in token 
 **
 **  Exmaple Usage
-**	- char s[]="this is a trial string to test the function";
-**	- char *d=" ";
-**	- printf("%s\n",zStrrmv(s,d));
+**	- char *t="zString is cool!";
+**	- printf("%d\n",zSChrSearch(t,'t'));
 **
 **  Example Output
-**	- thisisatrialstringtotestthefunction
+**	- 1 
 *************************************************************************/
-#ifndef _ZSTRRMV_H
-#define _ZSTRRMV_H
+#ifndef _ZCHRSEARCH_H
+#define _ZCHRSEARCH_H
 
 #ifndef _STDIO_H
 #include <stdio.h>
@@ -61,24 +60,18 @@
 #include <string.h>
 #endif
 
-#ifndef _ZCHRSEARCH_H_
-#include "zchrsearch.h"
-#endif
-
-char *zStrrmv(char *str,char *delim) {
-	int index=0;	
-
-	if (str==0 || delim==0)
+int zChrSearch(char *token,char s){
+	int i=0;
+	
+	if (!token || s=='\0')
 		return 0;
 
-	while(str[index]){;
-		if (zChrSearch(delim,str[index])) {
-			memmove (str+index,str+index+1,strlen(str)-index);
-			index--;
-		}
-		index++;
+	while(token[i]) {
+		if (token[i]==s)
+			return 1;
+		i++;
 	}
-	return str;
+	return 0;
 }
 
 #endif
