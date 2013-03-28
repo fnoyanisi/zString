@@ -1,10 +1,10 @@
 About zString
 ----------------------
- zString is a C library providing "slightly" different versions of some common Ccharacter string processing functions.
+ zString is a C library providing "slightly" different functionality compared tostandard string processing functions in C.
 
- zString does not aim to replace standard library string functions but introduce new functions with different functionalities (like zStrtok() )
+ zString does not aim to replace standard library string processing functions but introduce new functions with different functionalities (like zStrtok() does)
 
- zString is mainly created by Fehmi Noyan ISI
+ zString was created by Fehmi Noyan ISI
 
 License
 ----------------------
