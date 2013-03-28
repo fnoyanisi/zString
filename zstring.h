@@ -1,5 +1,5 @@
 /*************************************************************************
-** zstrrmv.h 
+** zstring.h
 ** Copyright (c) 2012, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 ** 
@@ -26,59 +26,27 @@
 ** LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ** ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   
-** 
-** Description :
-**  C function to remove certain characters from another string
+** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 **
-**  Function argumenents:
-**	char *zStrrmv(char *str, char *delim)
-**	- str is the string of char that is subject to character removal
-**	  process
-**  	- token is a string of delimiter characters. If one wishes to use
-**	  comma and undescore as delimiter, then delim = ",_"
-**
-**  Return values
-**	- NULL returned in case of an error
-**	- On success, the resulting string s returned
-**
-**  Exmaple Usage
-**	- char s[]="this is a trial string to test the function";
-**	- char *d=" ";
-**	- printf("%s\n",zStrrmv(s,d));
-**
-**  Example Output
-**	- thisisatrialstringtotestthefunction
+**  Description :
+**  Main include file zString library. You can explicitly include header
+**  fileis for particular functions or include this file only once.
+**  For ease of use, it is recommended to include this file instead of
+**  including each header for particular function. 
 *************************************************************************/
-#ifndef _ZSTRRMV_H
-#define _ZSTRRMV_H
-
-#ifndef _STDIO_H
-#include <stdio.h>
-#endif
-
-#ifndef _STRING_H
-#include <string.h>
-#endif
+#ifndef _ZSTRING_H
+#define _ZSTRING_H
 
 #ifndef _ZCHRSEARCH_H
 #include "zchrsearch.h"
 #endif
 
-char *zStrrmv(char *str,char *delim) {
-	int index=0;	
+#ifndef _ZSTRRMV_H
+#include "zstrrmv.h"
+#endif
 
-	if (str==0 || delim==0)
-		return 0;
-
-	while(str[index]){;
-		if (zChrSearch(delim,str[index])) {
-			memmove (str+index,str+index+1,strlen(str)-index);
-			index--;
-		}
-		index++;
-	}
-	return str;
-}
+#ifndef _ZSTRTOK_H
+#include "zstrtok.h"
+#endif
 
 #endif
