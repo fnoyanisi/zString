@@ -9,11 +9,9 @@ About zString
 Version History
 ----------------------
 v1.0	-	Initial version
-
-v1.1	-	Added zFileToMemory()
-		Added zReadMemoryFile()
-
+v1.1	-	Additions
 v1.2	-	Performance improvements for zStrrmv()
+v1.3	-	Bug fixes
 
 Functions 
 -----------------------
