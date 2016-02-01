@@ -1,6 +1,6 @@
 /*************************************************************************
 ** zstrrmv.h
-** Copyright (c) 2012, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
 ** Redistribution and use in source and binary forms, with or without
@@ -50,14 +50,14 @@
 **  Example Output
 **	- thisisatrialstringtotestthefunction
 *************************************************************************/
-#ifndef _ZSTRRMV_H
-#define _ZSTRRMV_H
+#ifndef ZSTRRMV_H
+#define ZSTRRMV_H
 
 #ifndef _STDIO_H
 #include <stdio.h>
 #endif
 
-#ifndef _ZCHRSEARCH_H
+#ifndef ZCHRSEARCH_H
 #include "zchrsearch.h"
 #endif
 

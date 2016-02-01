@@ -1,6 +1,6 @@
 /*************************************************************************
 ** zstring.h
-** Copyright (c) 2012-2015, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
 ** Redistribution and use in source and binary forms, with or without
@@ -34,20 +34,20 @@
 **  For ease of use, it is recommended to include this file instead of
 **  including each header for particular function.
 *************************************************************************/
-#ifndef _ZSTRING_H
-#define _ZSTRING_H
+#ifndef ZSTRING_H
+#define ZSTRING_H
 
-#define ZSTRING_VER 1.3
+#define ZSTRING_VER 1.4
 
-#ifndef _ZCHRSEARCH_H
+#ifndef ZCHRSEARCH_H
 #include "zchrsearch.h"
 #endif
 
-#ifndef _ZSTRRMV_H
+#ifndef ZSTRRMV_H
 #include "zstrrmv.h"
 #endif
 
-#ifndef _ZSTRTOK_H
+#ifndef ZSTRTOK_H
 #include "zstrtok.h"
 #endif
 

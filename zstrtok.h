@@ -1,6 +1,6 @@
 /*************************************************************************
 ** zstrtok.h
-** Copyright (c) 2012, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 ** 
 ** Redistribution and use in source and binary forms, with or without
@@ -66,8 +66,8 @@
 **	- (null)
 *************************************************************************/
 
-#ifndef _ZSTRTOK_H
-#define _ZSTRTOK_H
+#ifndef ZSTRTOK_H
+#define ZSTRTOK_H
 
 #ifndef _STDIO_H
 #include <stdio.h>
