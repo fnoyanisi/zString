@@ -60,9 +60,11 @@
 #include <string.h>
 #endif
 
-# "inline"ing this function causes issues when
-# the code is compiled with llvm/clang
-# http://clang.llvm.org/compatibility.html#inline
+/* 
+ * "inline"ing this function causes issues when
+ * the code is compiled with llvm/clang
+ * http://clang.llvm.org/compatibility.html#inline
+ */
 int zChrSearch(char *token,char s){
 	if (!token || s=='\0')
 		return 0;
