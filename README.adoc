@@ -36,7 +36,7 @@ Extended version of `zStrtok()` that treats any text enclosed within `quote`
 characters as a single entry even if `delim` is included in it. 
 
 == License
------------------------
+
 zString can be distributed, modified and used under the terms of BSD license (4-clause, old the original BSD license)
 
 Fehmi Noyan ISI
