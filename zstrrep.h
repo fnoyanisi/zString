@@ -1,6 +1,6 @@
 /*************************************************************************
-** zChrSearch.h
-** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** zstrrep.h
+** Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
 ** Redistribution and use in source and binary forms, with or without
@@ -29,43 +29,40 @@
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
 ** Description :
-**  C function that searches the existance of a particular character in
-**  given character string
+**  C function to replace every occurance of chrachter 'x' wihtin string 'str'
+**  with character 'y'.
 **
 **  Function argumenents:
-**	int zChrSearch(char *token,char s)
-**      - token is the string of chars in which s will be searched
-**      - s is a single character that will be searched within token
+**	char *zStrrep(char *str, char x,char y)
+**      - str is the string of char that is subject to character replacement
+**      process
+**      - x is the character to be replaced
+**      - y is the replacement of x
 **
 **  Return values
-**      - Zero will be returned if either of token or s is NULL or s cannot
-**      be found in token
-**      - 1 returned if s is found in token
+**      - the resulting string is returned
 **
-**  Example Usage
-**      char *t="zString is cool!";
-**      printf("%d\n",zSChrSearch(t,'t'));
+**  Exmaple Usage
+**        char s[]="this is a trial string to test the function.";
+**        char x=' ', y='_';
+**        printf("%s\n",zStrrep(s,x,y));
 **
 **  Example Output
-**      1
+**        this_is_a_trial_string_to_test_the_function.
 *************************************************************************/
-#ifndef ZCHRSEARCH_H
-#define ZCHRSEARCH_H
+#ifndef ZSTRREP_H
+#define ZSTRREP_H
 
-/*
- * "inline"ing this function causes issues when
- * the code is compiled with llvm/clang
- * http://clang.llvm.org/compatibility.html#inline
- */
-int zChrSearch(char *token,char s){
-	if (!token || s=='\0')
-		return 0;
+char *zStrrep(char *str, char x, char y){
+    char *tmp=str;
+    while(*tmp)
+        if(*tmp == x)
+            *tmp++ = y; /* assign first, then incement */
+        else
+            *tmp++;
 
-    for (;*token; token++)
-        if (*token == s)
-            return 1;
-
-	return 0;
+    *tmp='\0';
+    return str;
 }
 
 #endif

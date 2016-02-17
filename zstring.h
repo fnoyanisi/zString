@@ -29,15 +29,15 @@
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
 **  Description :
-**  Main include file zString library. You can explicitly include header
-**  file is for particular functions or include this file only once.
+**  Main include file for zString string library. You can explicitly include
+**  the header file for any particular function or include this file only once.
 **  For ease of use, it is recommended to include this file instead of
-**  including each header for particular function.
+**  including each header for a particular function.
 *************************************************************************/
 #ifndef ZSTRING_H
 #define ZSTRING_H
 
-#define ZSTRING_VER 1.4
+#define ZSTRING_VER 1.5
 
 #ifndef ZCHRSEARCH_H
 #include "zchrsearch.h"
@@ -49,6 +49,14 @@
 
 #ifndef ZSTRTOK_H
 #include "zstrtok.h"
+#endif
+
+#ifndef ZSTRTOK_DQUOTES_H
+#include "zstrtok_dquotes.h"
+#endif
+
+#ifndef ZSTRREP_H
+#include "zstrrep.h"
 #endif
 
 #endif

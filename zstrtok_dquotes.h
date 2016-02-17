@@ -1,6 +1,6 @@
 /*************************************************************************
-** zstrtok.h
-** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** zstrtok_dquotes.h
+** Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
 ** Redistribution and use in source and binary forms, with or without
@@ -29,19 +29,20 @@
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
 **  Description :
-**  C function alternative to Standard C Library's strtok() call with
-**  differences given below
-**	- Unlike strtok(), zStrtok() returns delim in case of consecutive
-**	  delimiters.
-**	- Unlike strtok(), zStrtok() accepts only single char delim
-**	- strtok() returns NULL if no token is found whereas zStrtok()
-**	  returns input str (see Return values section below)
+**  zStrtok_dquotes() is added into zstring library to be able to comply with
+**  RFC4180 Clause-5 while processing text/csv MIME type.
+**  This function extends the operation of zStrtok() function by treating any
+**  text enclosed within 'quote' characters as a single phrase and ignores
+**  any 'delim' included in that particular phrase.
+**
+**  Please refer to the description of zstrtok() function for more details.
 **
 **  Function arguments:
-**	char *zStrtok(char *str, const char *delim)
+**	char *zStrtok_dquotes(char *str, const char *delim, const char quote)
 **      - str is a pointer to a NULL terminated string of charaters
 **      - delim is a NULL terminated character string whose first char
 **      is the delimiter
+**      - quote is a chracter constant to identify the quoting chracter
 **
 **  Return values
 **      - A pointer to next token in the str is returned
@@ -49,29 +50,31 @@
 **      - If delim cannot be found in the str, str is returned
 **
 **  Example Usage
-**      char str[] = "A,B,,,C";
-**      printf("1 %s\n",zStrtok(s,","));
-**      printf("2 %s\n",zStrtok(NULL,","));
-**      printf("3 %s\n",zStrtok(NULL,","));
-**      printf("4 %s\n",zStrtok(NULL,","));
-**      printf("5 %s\n",zStrtok(NULL,","));
-**      printf("6 %s\n",zStrtok(NULL,","));
+**      char s[]="aaaa,bbbb,\"ccc,c\",dddd,eeee,\"ff,ff\"";
+**
+**      printf("1 %s\n",zStrtok_dquotes(s,",",'\"'));
+**      printf("2 %s\n",zStrtok_dquotes(NULL,",",'\"'));
+**      printf("3 %s\n",zStrtok_dquotes(NULL,",",'\"'));
+**      printf("4 %s\n",zStrtok_dquotes(NULL,",",'\"'));
+**      printf("5 %s\n",zStrtok_dquotes(NULL,",",'\"'));
+**      printf("6 %s\n",zStrtok_dquotes(NULL,",",'\"'));
 **
 **  Example Output
-**      1 A
-**      2 B
-**      3 ,
-**      4 ,
-**      5 C
-**      6 (null)
+**      1 aaaa
+**      2 bbbb
+**      3 "ccc,c"
+**      4 dddd
+**      5 eeee
+**      6 "ff,ff"
 *************************************************************************/
-#ifndef ZSTRTOK_H
-#define ZSTRTOK_H
+#ifndef ZSTRTOK_DQUOTES_H
+#define ZSTRTOK_DQUOTES_H
 
-char *zStrtok(char *str, const char *delim) {
+char *zStrtok_dquotes(char *str, const char *delim, const char quote) {
     static char *static_str=0;    	/* var to store last address */
-    int index=0, strlength=0;       	/* integers for indexes */
-    int found = 0;              	/* check if delim is found */
+    int index=0, strlength=0;       /* integers for indexes */
+    int found=0;              	    /* check if delim is found */
+    int in_quotes=0;
 
     /* delimiter cannot be NULL
     * if no more char left, return NULL as well
@@ -82,16 +85,25 @@ char *zStrtok(char *str, const char *delim) {
     if (str == 0)
         str = static_str;
 
-    /* get length of string */
+    /* get the string length */
     while(str[strlength])
         strlength++;
 
-    /* find the first occurance of delim */
+    /* find the first occurance of delim outside of an phrase */
     for (index=0;index<strlength;index++)
-        if (str[index]==delim[0]) {
+        if (quote && str[index]==quote && in_quotes==0)
+            in_quotes=1;
+        else if (quote && str[index]==quote && in_quotes==1)
+            in_quotes=0;
+        else if (str[index]==delim[0] && in_quotes==0) {
             found=1;
             break;
         }
+
+    /* At this point, in_quotes should be 0 in normal cases. If not,
+    * the behaviour is undefined.
+    */
+    in_quotes=0;
 
     /* if delim is not contained in str, return str */
     if (!found) {

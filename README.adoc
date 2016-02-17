@@ -4,17 +4,17 @@ zString is a C library providing _slightly_ different functionality compared to 
 
 zString does not aim to replace standard library string processing functions but introduces new functions with different functionalities (such as `zStrtok()`)
 
-zString is developed by fnoyanisi@yahoo.com[Fehmi Noyan ISI]
+zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
 
-* version 1.5   -   zStrtok_dquotes() and zStrrep() added
-* version 1.4   -   Updated zChrSearch() to make the library
+* *version 1.5   -*   zStrtok_dquotes() and zStrrep() added
+* *version 1.4   -*   Updated zChrSearch() to make the library
                     compatible with llvm/clang
-* version 1.3	-	Bug fixes
-* version 1.2	-	Performance improvements for zStrrmv()
-* version 1.1	-	Additions
-* version 1.0	-	Initial version
+* *version 1.3	-*	Bug fixes
+* *version 1.2	-*	Performance improvements for zStrrmv()
+* *version 1.1	-*	Additions
+* *version 1.0	-*	Initial version
 
 == Functions 
 
@@ -40,4 +40,4 @@ characters as a single entry even if `delim` is included in it.
 zString can be distributed, modified and used under the terms of BSD license (4-clause, old the original BSD license)
 
 Fehmi Noyan ISI
-fnoyanisi@yahoo.com[fnoyanisi@yahoo.com] 
+mailto:fnoyanisi@yahoo.com[fnoyanisi@yahoo.com] 

@@ -34,42 +34,38 @@
 **
 **  Function argumenents:
 **	char *zStrrmv(char *str, char *bad)
-**	- str is the string of char that is subject to character removal
-**	  process
-**  - bad is a string of characters that will be removed from str. If one wishes
-**    to remove comma and undescore from another string, then bad = ",_"
+**      - str is the string of char that is subject to character removal
+**      process
+**      - bad is a string of characters that will be removed from str. If one wishes
+**      to remove comma and undescore from another string, then bad = ",_"
 **
 **  Return values
-**	- the resulting string is returned
+**      - the resulting string is returned
 **
 **  Exmaple Usage
-**	- char s[]="this is a trial string to test the function.";
-**	- char *d=" .";
-**	- printf("%s\n",zStrrmv(s,d));
+**      char s[]="this is a trial string to test the function.";
+**      char *d=" .";
+**      printf("%s\n",zStrrmv(s,d));
 **
 **  Example Output
-**	- thisisatrialstringtotestthefunction
+**      thisisatrialstringtotestthefunction
 *************************************************************************/
 #ifndef ZSTRRMV_H
 #define ZSTRRMV_H
-
-#ifndef _STDIO_H
-#include <stdio.h>
-#endif
 
 #ifndef ZCHRSEARCH_H
 #include "zchrsearch.h"
 #endif
 
-char *zStrrmv(char *str,char *delim) {
-        char *src = str , *dst = str;
-        while(*src)
-                if(zChrSearch(delim,*src))
-                        *src++;
-                else
-                        *dst++ = *src++;
+char *zStrrmv(char *str,char *bad) {
+    char *src = str , *dst = str;
+    while(*src)
+        if(zChrSearch(bad,*src))
+            *src++;
+        else
+            *dst++ = *src++;  /* assign first, then incement */
 
-        *dst='\0';
+    *dst='\0';
 	return str;
 }
 
