@@ -1,5 +1,6 @@
 == About zString
 -----------------------
+
 zString is a C library providing _slightly_ different functionality compared to standard string processing functions in C.
 
 zString does not aim to replace standard library string processing functions but introduces new functions with different functionalities (such as `zStrtok()`)
@@ -8,6 +9,7 @@ zString is developed by fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
 ----------------------
+
 * version 1.5   -   zStrtok_dquotes() and zStrrep() added
 * version 1.4   -   Updated zChrSearch() to make the library
                     compatible with llvm/clang
@@ -18,6 +20,7 @@ zString is developed by fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Functions 
 -----------------------
+
 Read each individual file to get more details on each function and usage examples.
 
 zCharSearch(char *token, char s)::
