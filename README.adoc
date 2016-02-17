@@ -16,9 +16,11 @@ zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 * *version 1.1	-*	Additions
 * *version 1.0	-*	Initial version
 
-== Functions 
+== Functions and Usage 
 
-Read each individual file to get more details on each function and usage examples.
+Include `zstring.h` in your code. Alternatively, each header file can be included seperately for any particular function.
+
+Refer any indivudual function's header file to get more details on its usage, arguments and usage examples.
 
 zCharSearch(char *token, char s)::
 Searches for character `s` in string `token`.
@@ -34,6 +36,9 @@ handling successive delimiters.
 zStrtok_dquotes(char *str, const char *delim,const char quote)::
 Extended version of `zStrtok()` that treats any text enclosed within `quote`
 characters as a single entry even if `delim` is included in it. 
+
+zStrrepx(char *str, char x, char y)::
+Replaces every occurance of `x` with `y` within string `str`.
 
 == License
 
