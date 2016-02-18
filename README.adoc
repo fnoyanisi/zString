@@ -2,47 +2,62 @@
 
 zString is a C library providing _slightly_ different functionality compared to standard string processing functions in C.
 
-zString does not aim to replace standard library string processing functions but introduces new functions with different functionalities (such as `zStrtok()`)
+zString does not aim to replace standard library string processing functions but introduces new functions with different functionalities (such as `zstring_strtok()`)
 
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
 
-* *version 1.5   -*   zStrtok_dquotes() and zStrrep() added
-* *version 1.4   -*   Updated zChrSearch() to make the library
-                    compatible with llvm/clang
-* *version 1.3	-*	Bug fixes
-* *version 1.2	-*	Performance improvements for zStrrmv()
-* *version 1.1	-*	Additions
-* *version 1.0	-*	Initial version
+* *version 1.5 - (Feb 2016)*   
+** zstring_strtok_dquotes() added
+** zstring_replace_chr() added
+** zstring_replace_str() added
+
+* *version 1.4 - (Jan 2016)*   
+** Updated zstring_search_chr() to make the library compatible with llvm/clang
+
+* *version 1.3*	
+** Bug fixes
+
+* *version 1.2*	
+** Performance improvements for zstring_remove_chr()
+
+* *version 1.1*	
+** Additions
+
+* *version 1.0 - (Nov 2012)*	
+** First version
 
 == Functions and Usage 
 
 Include `zstring.h` in your code. Alternatively, each header file can be included seperately for any particular function.
 
-Refer any indivudual function's header file to get more details on its usage, arguments and usage examples.
+Refer any indivudual function's header file to get more details on its usage and arguments.
 
-zCharSearch(char *token, char s)::
+zstring_search_chr(char *token, char s)::
 Searches for character `s` in string `token`.
 
-zStrrmv(char *str,char *bad)::
+zstring_remove_chr(char *str,char *bad)::
 Removes characters contained in string `bad`, from string `str`. Each
 character in `bad` is searched seperately. 
 
-zStrtok(char *str, const char *delim)::
+zstring_strtok(char *str, const char *delim)::
 An alternative to standard library's `strtok()` function that is also capable of
 handling successive delimiters.
 
-zStrtok_dquotes(char *str, const char *delim,const char quote)::
+zstring_strtok_dquotes(char *str, const char *delim,const char quote)::
 Extended version of `zStrtok()` that treats any text enclosed within `quote`
 characters as a single entry even if `delim` is included in it. 
 
-zStrrepx(char *str, char x, char y)::
-Replaces every occurance of `x` with `y` within string `str`.
+zstring_replace_chr(char *str, char x, char y)::
+Replaces every occurance of character `x` with character `y` within string `str`.
+
+zstring_replace_str(char *str, char *x, char *y)::
+Replaces every occurance of string `x` with string `y` within string `str`.
 
 == License
 
-zString can be distributed, modified and used under the terms of BSD license (4-clause, old the original BSD license)
+zString can be distributed, modified and used under the terms of 4-clause BSD license. 
 
 Fehmi Noyan ISI
 mailto:fnoyanisi@yahoo.com[fnoyanisi@yahoo.com] 

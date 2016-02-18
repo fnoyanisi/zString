@@ -1,5 +1,5 @@
 /*************************************************************************
-** zstring.h
+** zstring_remove_chr.h
 ** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
@@ -28,39 +28,46 @@
 ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
-**  Description :
-**  Main include file for zString string library. You can explicitly include
-**  the header file for any particular function or include this file only once.
-**  For ease of use, it is recommended to include this file instead of
-**  including each header for a particular function.
+** Description :
+**  C function to remove certain characters provided by a string of characters
+**  from string another string
+**
+**  Function argumenents:
+**	char *zstring_remove_chr(char *str, char *bad)
+**      - str is the string of char that is subject to character removal
+**      process
+**      - bad is a string of characters that will be removed from str. If one 
+**      wishes to remove comma and undescore from another string, then 
+**      bad = ",_"
+**
+**  Return values
+**      - the resulting string is returned
+**
+**  Exmaple Usage
+**      char s[]="this is a trial string to test the function.";
+**      char *d=" .";
+**      printf("%s\n",zstring_remove_chr(s,d));
+**
+**  Example Output
+**      thisisatrialstringtotestthefunction
 *************************************************************************/
-#ifndef ZSTRING_H
-#define ZSTRING_H
-
-#define ZSTRING_VER 1.5
+#ifndef ZSTRING_REMOVE_CHR_H
+#define ZSTRING_REMOVE_CHR_H
 
 #ifndef ZSTRING_SEARCH_CHR_H
 #include "zstring_search_chr.h"
 #endif
 
-#ifndef ZSTRING_REMOVE_CHR_H
-#include "zstring_remove_chr.h"
-#endif
+char *zstring_remove_chr(char *str,char *bad) {
+    char *src = str , *dst = str;
+    while(*src)
+        if(zstring_search_chr(bad,*src))
+            *src++;
+        else
+            *dst++ = *src++;  /* assign first, then incement */
 
-#ifndef ZSTRING_STRTOK_H
-#include "zstring_strtok.h"
-#endif
-
-#ifndef ZSTRING_STRTOK_DQUOTES_H
-#include "zstring_strtok_dquotes.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_CHR_H
-#include "zstring_replace_chr.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_STR_H
-#include "zstring_replace_str.h"
-#endif
+    *dst='\0';
+	return str;
+}
 
 #endif

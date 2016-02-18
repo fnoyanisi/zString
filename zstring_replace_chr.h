@@ -1,6 +1,6 @@
 /*************************************************************************
-** zstring.h
-** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+** zstring_replace_chr.h
+** Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
 ** Redistribution and use in source and binary forms, with or without
@@ -28,39 +28,41 @@
 ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
-**  Description :
-**  Main include file for zString string library. You can explicitly include
-**  the header file for any particular function or include this file only once.
-**  For ease of use, it is recommended to include this file instead of
-**  including each header for a particular function.
+** Description :
+**  C function to replace every occurance of chrachter 'x' wihtin string 'str'
+**  with character 'y'.
+**
+**  Function argumenents:
+**	char *zStrrep(char *str, char x,char y)
+**      - str is the string of char that is subject to character replacement
+**      process
+**      - x is the character to be replaced
+**      - y is the replacement of x
+**
+**  Return values
+**      - the resulting string is returned
+**
+**  Exmaple Usage
+**        char s[]="this is a trial string to test the function.";
+**        char x=' ', y='_';
+**        printf("%s\n",zstring_replace_chr(s,x,y));
+**
+**  Example Output
+**        this_is_a_trial_string_to_test_the_function.
 *************************************************************************/
-#ifndef ZSTRING_H
-#define ZSTRING_H
-
-#define ZSTRING_VER 1.5
-
-#ifndef ZSTRING_SEARCH_CHR_H
-#include "zstring_search_chr.h"
-#endif
-
-#ifndef ZSTRING_REMOVE_CHR_H
-#include "zstring_remove_chr.h"
-#endif
-
-#ifndef ZSTRING_STRTOK_H
-#include "zstring_strtok.h"
-#endif
-
-#ifndef ZSTRING_STRTOK_DQUOTES_H
-#include "zstring_strtok_dquotes.h"
-#endif
-
 #ifndef ZSTRING_REPLACE_CHR_H
-#include "zstring_replace_chr.h"
-#endif
+#define ZSTRING_REPLACE_CHR_H
 
-#ifndef ZSTRING_REPLACE_STR_H
-#include "zstring_replace_str.h"
-#endif
+char *zstring_replace_chr(char *str, char x, char y){
+    char *tmp=str;
+    while(*tmp)
+        if(*tmp == x)
+            *tmp++ = y; /* assign first, then incement */
+        else
+            *tmp++;
+
+    *tmp='\0';
+    return str;
+}
 
 #endif

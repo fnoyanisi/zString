@@ -1,5 +1,5 @@
 /*************************************************************************
-** zstring.h
+** zstring_search_chr.h
 ** Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 ** All rights reserved.
 **
@@ -28,39 +28,44 @@
 ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
-**  Description :
-**  Main include file for zString string library. You can explicitly include
-**  the header file for any particular function or include this file only once.
-**  For ease of use, it is recommended to include this file instead of
-**  including each header for a particular function.
+** Description :
+**  C function that searches the existance of a particular character in
+**  given character string
+**
+**  Function argumenents:
+**	int zstring_search_chr(char *token,char s)
+**      - token is the string of chars in which s will be searched
+**      - s is a single character that will be searched within token
+**
+**  Return values
+**      - Zero will be returned if either of token or s is NULL or s cannot
+**      be found in token
+**      - 1 returned if s is found in token
+**
+**  Example Usage
+**      char *t="zString is cool!";
+**      printf("%d\n",zstring_search_chr(t,'t'));
+**
+**  Example Output
+**      1
 *************************************************************************/
-#ifndef ZSTRING_H
-#define ZSTRING_H
-
-#define ZSTRING_VER 1.5
-
 #ifndef ZSTRING_SEARCH_CHR_H
-#include "zstring_search_chr.h"
-#endif
+#define ZSTRING_SEARCH_CHR_H
 
-#ifndef ZSTRING_REMOVE_CHR_H
-#include "zstring_remove_chr.h"
-#endif
+/*
+ * "inline"ing this function causes issues when
+ * the code is compiled with llvm/clang
+ * http://clang.llvm.org/compatibility.html#inline
+ */
+int zstring_search_chr(char *token,char s){
+	if (!token || s=='\0')
+		return 0;
 
-#ifndef ZSTRING_STRTOK_H
-#include "zstring_strtok.h"
-#endif
+    for (;*token; token++)
+        if (*token == s)
+            return 1;
 
-#ifndef ZSTRING_STRTOK_DQUOTES_H
-#include "zstring_strtok_dquotes.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_CHR_H
-#include "zstring_replace_chr.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_STR_H
-#include "zstring_replace_str.h"
-#endif
+	return 0;
+}
 
 #endif
