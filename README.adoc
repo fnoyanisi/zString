@@ -2,11 +2,17 @@
 
 zString is a C library providing _slightly_ different functionality compared to standard string processing functions in C.
 
-zString does not aim to replace standard library string processing functions but introduces new functions with different functionalities (such as `zstring_strtok()`)
+zString does not aim to replace standard library string processing functions but introduces new routines with different functionalities (such as `zstring_strtok()`)
 
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
+
+* *version 1.6 - (Feb 2016)*   
+** Library is licensed with 2-Clause BSD License
+** zstring_trim() added
+** zstring_ltrim() added
+** zstring_rtrim() added
 
 * *version 1.5 - (Feb 2016)*   
 ** zstring_strtok_dquotes() added
@@ -30,9 +36,9 @@ zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Functions and Usage 
 
-Include `zstring.h` in your code. Alternatively, each header file can be included seperately for any particular function.
+It is enough to include `zstring.h` in your code. Alternatively, any header file can be included seperately for the respective function defined in it.
 
-Refer any indivudual function's header file to get more details on its usage and arguments.
+Refer the indivudual header file for the function to get more details on its usage and arguments.
 
 zstring_search_chr(char *token, char s)::
 Searches for character `s` in string `token`.
@@ -55,9 +61,18 @@ Replaces every occurance of character `x` with character `y` within string `str`
 zstring_replace_str(char *str, char *x, char *y)::
 Replaces every occurance of string `x` with string `y` within string `str`.
 
+zstring_trim(char *str)::
+Trims leading and trailing white-space characters from the character string `str`.
+
+zstring_ltrim(char *str)::
+Trims leading white-space characters from the character string `str`.
+
+zstring_rtrim(char *str)::
+Trims trailing white-space characters from the character string `str`.
+
 == License
 
-zString can be distributed, modified and used under the terms of 4-clause BSD license. 
+zString can be distributed, modified and used under the terms of 2-clause BSD license (FreeBSD license). 
 
 Fehmi Noyan ISI
 mailto:fnoyanisi@yahoo.com[fnoyanisi@yahoo.com] 

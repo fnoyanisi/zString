@@ -1,5 +1,5 @@
 /******************************************************************************
-* zstring_replace_chr.h
+* zstring_ltrim.h
 * Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -24,39 +24,41 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to replace every occurance of chrachter 'x' wihtin string 'str'
-*  with character 'y'.
+*  C function to trim leading white-spaces from a character string
 *
 *  Function argumenents:
-*	char *zStrrep(char *str, char x,char y)
-*      - str is the string of char that is subject to character replacement
-*      process
-*      - x is the character to be replaced
-*      - y is the replacement of x
+*	char *zstring_trim(char *str)
+*      - str is the string of char that is subject to left-trim operation 
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Exmaple Usage
-*        char s[]="this is a trial string to test the function.";
-*        char x=' ', y='_';
-*        printf("%s\n",zstring_replace_chr(s,x,y));
+*      char s[]="     Free software is a matter of liberty.     ";
+*      printf("%sLike free speech!\n",zstring_ltrim(s));
 *
 *  Example Output
-*        this_is_a_trial_string_to_test_the_function.
+*      Free software is a matter of liberty.     Like free speech!
 ******************************************************************************/
-#ifndef ZSTRING_REPLACE_CHR_H
-#define ZSTRING_REPLACE_CHR_H
+#ifndef ZSTRING_LTRIM_H
+#define ZSTRING_LTRIM_H
 
-char *zstring_replace_chr(char *str, char x, char y){
-    char *tmp=str;
-    while(*tmp)
-        if(*tmp == x)
-            *tmp++ = y; /* assign first, then incement */
-        else
-            *tmp++;
+char *zstring_ltrim(char *str){
+    char *src=str;  /* save the original pointer */
+    char *dst=str;  /* result */
+    int index=0;    /* index of the first non-space char */
 
-    *tmp='\0';
+    /* skip leading white-spaces */
+    for(; *src && *src==' '; ++src, ++index)
+        ;
+
+    /* copy rest of the string */
+    while(*src)
+        *dst++ = *src++;
+
+    /* terminate the string */
+    *(src-index)='\0';
+
     return str;
 }
 

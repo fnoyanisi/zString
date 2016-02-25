@@ -1,72 +1,68 @@
-/*************************************************************************
-** zstring_strtok_dquotes.h
-** Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
-** All rights reserved.
-**
-** Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are met:
-** 1. Redistributions of source code must retain the above copyright
-**   notice, this list of conditions and the following disclaimer.
-** 2. Redistributions in binary form must reproduce the above copyright
-**   notice, this list of conditions and the following disclaimer in the
-**   documentation and/or other materials provided with the distribution.
-** 3. All advertising materials mentioning features or use of this software
-**   must display the following acknowledgement:
-**   This product includes software developed by Fehmi Noyan ISI.
-** 4. Neither the name of Fehmi Noyan ISI nor the
-**   names of its contributors may be used to endorse or promote products
-**   derived from this software without specific prior written permission.
-**
-** THIS SOFTWARE IS PROVIDED BY Fehmi Noyan ISI ''AS IS'' AND ANY
-** EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-** DISCLAIMED. IN NO EVENT SHALL Fehmi Noyan ISI BE LIABLE FOR ANY
-** DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-** (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-** LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-** ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-**
-**  Description :
-**  zstring_strtok_dquotes() is added into zstring library to be able to comply with
-**  RFC4180 Clause-5 while processing text/csv MIME type.
-**  This function extends the operation of zstring_strtok() function by treating any
-**  text enclosed within 'quote' characters as a single phrase and ignores
-**  any 'delim' included in that particular phrase.
-**
-**  Please refer to the description of zstring_strtok() function for more details.
-**
-**  Function arguments:
-**	char *zstring_strtok_dquotes(char *str, const char *delim, const char quote)
-**      - str is a pointer to a NULL terminated string of charaters
-**      - delim is a NULL terminated character string whose first char
-**      is the delimiter
-**      - quote is a chracter constant to identify the quoting chracter
-**
-**  Return values
-**      - A pointer to next token in the str is returned
-**      - If end of str is reached NULL is returned
-**      - If delim cannot be found in the str, str is returned
-**
-**  Example Usage
-**      char s[]="aaaa,bbbb,\"ccc,c\",dddd,eeee,\"ff,ff\"";
-**
-**      printf("1 %s\n",zstring_strtok_dquotes(s,",",'\"'));
-**      printf("2 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-**      printf("3 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-**      printf("4 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-**      printf("5 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-**      printf("6 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-**
-**  Example Output
-**      1 aaaa
-**      2 bbbb
-**      3 "ccc,c"
-**      4 dddd
-**      5 eeee
-**      6 "ff,ff"
-*************************************************************************/
+/******************************************************************************
+* zstring_strtok_dquotes.h
+* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*
+* 1. Redistributions of source code must retain the above copyright
+*   notice, this list of conditions and the following disclaimer.
+* 2. Redistributions in binary form must reproduce the above copyright
+*   notice, this list of conditions and the following disclaimer in the
+*   documentation and/or other materials provided with the distribution.
+*
+* THIS SOFTWARE IS PROVIDED BY Fehmi Noyan ISI ''AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL Fehmi Noyan ISI BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+*  Description :
+*  zstring_strtok_dquotes() is added into zstring library to be able to comply 
+*  with RFC4180 Clause-5 while processing text/csv MIME type.
+*  This function extends the operation of zstring_strtok() function by treating 
+*  any text enclosed within 'quote' characters as a single phrase and ignores
+*  any 'delim' included in that particular phrase.
+*
+*  Please refer to the description of zstring_strtok() function for more details.
+*
+*  Function arguments:
+*	char *zstring_strtok_dquotes(char *str, const char *delim, const char 
+*       quote)
+*      - str is a pointer to a NULL terminated string of charaters
+*      - delim is a NULL terminated character string whose first char
+*      is the delimiter
+*      - quote is a chracter constant to identify the quoting chracter
+*
+*  Return values
+*      - A pointer to next token in the str is returned
+*      - If end of str is reached NULL is returned
+*      - If delim cannot be found in the str, str is returned
+*
+*  Example Usage
+*      char s[]="aaaa,bbbb,\"ccc,c\",dddd,eeee,\"ff,ff\"";
+*
+*      printf("1 %s\n",zstring_strtok_dquotes(s,",",'\"'));
+*      printf("2 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*      printf("3 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*      printf("4 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*      printf("5 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*      printf("6 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*
+*  Example Output
+*      1 aaaa
+*      2 bbbb
+*      3 "ccc,c"
+*      4 dddd
+*      5 eeee
+*      6 "ff,ff"
+******************************************************************************/
 #ifndef ZSTRING_STRTOK_DQUOTES_H
 #define ZSTRING_STRTOK_DQUOTES_H
 

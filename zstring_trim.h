@@ -1,12 +1,12 @@
 /******************************************************************************
-* zstring_replace_chr.h
+* zstring_trim.h
 * Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-*
 * 1. Redistributions of source code must retain the above copyright
+*
 *   notice, this list of conditions and the following disclaimer.
 * 2. Redistributions in binary form must reproduce the above copyright
 *   notice, this list of conditions and the following disclaimer in the
@@ -24,39 +24,53 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to replace every occurance of chrachter 'x' wihtin string 'str'
-*  with character 'y'.
+*  C function to trim leading and trailing white-spaces from a character
+*  string
 *
 *  Function argumenents:
-*	char *zStrrep(char *str, char x,char y)
-*      - str is the string of char that is subject to character replacement
-*      process
-*      - x is the character to be replaced
-*      - y is the replacement of x
+*	char *zstring_trim(char *str)
+*      - str is the string of char that is subject to trim operation 
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Exmaple Usage
-*        char s[]="this is a trial string to test the function.";
-*        char x=' ', y='_';
-*        printf("%s\n",zstring_replace_chr(s,x,y));
+*      char s[]="     Free software is a matter of liberty.     ";
+*      printf("%sLike free speech!\n",zstring_trim(s));
 *
 *  Example Output
-*        this_is_a_trial_string_to_test_the_function.
+*      Free software is a matter of liberty.Like free speech!
 ******************************************************************************/
-#ifndef ZSTRING_REPLACE_CHR_H
-#define ZSTRING_REPLACE_CHR_H
+#ifndef ZSTRING_TRIM_H
+#define ZSTRING_TRIM_H
 
-char *zstring_replace_chr(char *str, char x, char y){
-    char *tmp=str;
-    while(*tmp)
-        if(*tmp == x)
-            *tmp++ = y; /* assign first, then incement */
-        else
-            *tmp++;
+char *zstring_trim(char *str){
+    char *src=str;  /* save the original pointer */
+    char *dst=str;  /* result */
+    int in_word=0;  /* logical check */
+    int index=0;    /* index of the last non-space char*/
 
-    *tmp='\0';
+    while (*src)
+        if(*src!=' '){
+         /* Found a word */
+            in_word = 1;
+            *dst++ = *src++;  /* make the assignment first
+                               * then increment
+                               */
+        } else if (*src==' ' && in_word==0) {
+         /* Already going through a series of white-spaces */
+            in_word=0;
+            ++src;
+        } else if (*src==' ' && in_word==1) {
+         /* End of a word, dont mind copy white spaces here */
+            in_word=0;
+            *dst++ = *src++;
+            index = (dst-str)-1; /* location of the last char */
+        }
+
+    /* terminate the string */
+    *(str+index)='\0';
+
     return str;
 }
 
