@@ -52,9 +52,9 @@
  * the code is compiled with llvm/clang
  * http://clang.llvm.org/compatibility.html#inline
  */
-int zstring_search_chr(char *token,char s){
-	if (!token || s=='\0')
-		return 0;
+int zstring_search_chr(const char *token,char s){
+    if (s=='\0')
+	return 0;
 
     for (;*token; token++)
         if (*token == s)

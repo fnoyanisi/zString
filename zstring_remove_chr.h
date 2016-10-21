@@ -58,11 +58,11 @@
 #include "zstring_search_chr.h"
 #endif
 
-char *zstring_remove_chr(char *str,char *bad) {
+char *zstring_remove_chr(char *str,const char *bad) {
     char *src = str , *dst = str;
     while(*src)
         if(zstring_search_chr(bad,*src))
-            *src++;
+            src++;
         else
             *dst++ = *src++;  /* assign first, then incement */
 

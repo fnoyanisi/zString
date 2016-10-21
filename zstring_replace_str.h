@@ -51,7 +51,10 @@ char *zstring_replace_str(char *str, const char *x, const char *y){
      * dummy_ptr enables us to preserve the address of tmp_str when
      * a matching string pattern is found
      * */
-    char *tmp_str = str, *tmp_x = x, *dummy_ptr = tmp_x, *tmp_y = y;
+    char *tmp_str = str;
+    const char *tmp_x = x;
+    const char *dummy_ptr = tmp_x; 
+    const char *tmp_y = y;
     int len_str=0, len_y=0, len_x=0;
 
     /* NULL pointer check */

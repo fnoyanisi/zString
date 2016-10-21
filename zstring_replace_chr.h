@@ -54,7 +54,7 @@ char *zstring_replace_chr(char *str, char x, char y){
         if(*tmp == x)
             *tmp++ = y; /* assign first, then incement */
         else
-            *tmp++;
+            tmp++;
 
     *tmp='\0';
     return str;
