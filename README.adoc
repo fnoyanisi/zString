@@ -8,6 +8,10 @@ zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
 
+* *version 1.7 - (Oct 2016)*   
+** Used _const char*_ instead of _char*_ where possible
+** performed a lint(1) check and cleared discrepancies  
+
 * *version 1.6 - (Feb 2016)*   
 ** Library is licensed with 2-Clause BSD License
 ** zstring_trim() added
