@@ -50,11 +50,12 @@ char *zstring_ltrim(char *str){
     int index=0;    /* index of the first non-space char */
 
     /* skip leading white-spaces */
-    while((c=*src)){
-        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
+    while((c=*src)){ 
+        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' '){
+            ++src;
+            ++index;
+        } else
             break;
-        ++src;
-        ++index;
     }
 
     /* copy rest of the string */
