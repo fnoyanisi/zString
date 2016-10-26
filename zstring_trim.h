@@ -52,14 +52,12 @@ char *zstring_trim(char *str){
     int in_word=0;  /* word boundary logical check */
     int index=0;    /* index of the last non-space char*/
 
-
-
     while (*src){
         c = *src;
         is_space=0;
 
         if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
-            is_space=1
+            is_space=1;
 
         if(is_space == 0){
          /* Found a word */

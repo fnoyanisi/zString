@@ -46,11 +46,16 @@
 char *zstring_ltrim(char *str){
     char *src=str;  /* save the original pointer */
     char *dst=str;  /* result */
+    char c;
     int index=0;    /* index of the first non-space char */
 
     /* skip leading white-spaces */
-    for(; *src && *src==' '; ++src, ++index)
-        ;
+    while(c=*src){
+        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
+            break;
+        ++src;
+        ++index;
+    }
 
     /* copy rest of the string */
     while(*src)

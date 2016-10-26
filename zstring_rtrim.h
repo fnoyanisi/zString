@@ -46,12 +46,19 @@
 char *zstring_rtrim(char *str){
     char *src=str;  /* save the original pointer */
     char *dst=str;  /* result */
+    char c;
+    int is_space=0;
     int index=0;    /* index of the last non-space char*/
 
     /* copy the string */
     while(*src){
         *dst++ = *src++;
-        if (*src!=' ' && *src)
+        c = *src;
+
+        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
+            is_space=1;
+
+        if (is_space==1 && *src)
             index = (src-str)+1;
     }
 
