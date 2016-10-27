@@ -60,6 +60,11 @@
 
 char *zstring_remove_chr(char *str,const char *bad) {
     char *src = str , *dst = str;
+    
+    /* validate input */
+    if (!(str && bad))
+        return NULL;
+    
     while(*src)
         if(zstring_search_chr(bad,*src))
             src++;

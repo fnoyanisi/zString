@@ -49,6 +49,10 @@ char *zstring_ltrim(char *str){
     char c;
     int index=0;    /* index of the first non-space char */
 
+    /* validate input */
+    if (!str)
+        return str;
+    
     /* skip leading white-spaces */
     while((c=*src)){ 
         if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' '){

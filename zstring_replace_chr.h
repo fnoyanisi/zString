@@ -50,9 +50,14 @@
 
 char *zstring_replace_chr(char *str, char x, char y){
     char *tmp=str;
+
+    /* validate input */
+    if (!str)
+        return NULL;
+
     while(*tmp)
         if(*tmp == x)
-            *tmp++ = y; /* assign first, then incement */
+            *tmp++ = y; /* assign first, then increment */
         else
             tmp++;
 

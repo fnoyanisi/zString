@@ -48,7 +48,11 @@ char *zstring_rtrim(char *str){
     char *dst=str;  /* result */
     char c;
     int is_space=0;
-    int index=0;    /* index of the last non-space char*/
+    int index=0;    /* index of the last non-space char */
+
+    /* validate input */
+    if (!str)
+        return str;
 
     /* copy the string */
     while(*src){
@@ -57,8 +61,10 @@ char *zstring_rtrim(char *str){
 
         if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
             is_space=1;
+        else
+            is_space=0;
 
-        if (is_space==1 && *src)
+        if (is_space==0 && *src)
             index = (src-str)+1;
     }
 

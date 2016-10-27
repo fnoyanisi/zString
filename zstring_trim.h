@@ -52,6 +52,10 @@ char *zstring_trim(char *str){
     int in_word=0;  /* word boundary logical check */
     int index=0;    /* index of the last non-space char*/
 
+    /* validate input */
+    if (!str)
+        return str;
+    
     while ((c=*src)){
         is_space=0;
 

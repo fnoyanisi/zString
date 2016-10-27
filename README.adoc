@@ -7,6 +7,9 @@ zString does not aim to replace standard library string processing functions but
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
+* *version 1.8 - (Oct 2016)*   
+** trim family functions are isspace(3) compatible 
+** added input validation checks for most of the functions  
 
 * *version 1.7 - (Oct 2016)*   
 ** Used _const char*_ instead of _char*_ where possible
