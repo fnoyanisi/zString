@@ -35,10 +35,10 @@
 *  Function arguments:
 *	char *zstring_strtok_dquotes(char *str, const char *delim, const char 
 *       quote)
-*      - str is a pointer to a NULL terminated string of charaters
+*      - str is a pointer to a NULL terminated string of characters
 *      - delim is a NULL terminated character string whose first char
 *      is the delimiter
-*      - quote is a chracter constant to identify the quoting chracter
+*      - quote is a character constant to identify the quoting character
 *
 *  Return values
 *      - A pointer to next token in the str is returned
@@ -85,7 +85,7 @@ char *zstring_strtok_dquotes(char *str, const char *delim, const char quote) {
     while(str[strlength])
         strlength++;
 
-    /* find the first occurance of delim outside of an phrase */
+    /* find the first occurrence of delim outside of an phrase */
     for (index=0;index<strlength;index++)
         if (quote && str[index]==quote && in_quotes==0)
             in_quotes=1;
@@ -116,7 +116,7 @@ char *zstring_strtok_dquotes(char *str, const char *delim, const char quote) {
     }
 
     /* terminate the string
-    * this assignmetn requires char[], so str has to
+    * this assignment requires char[], so str has to
     * be char[] rather than *char
     */
     str[index] = '\0';

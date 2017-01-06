@@ -23,11 +23,11 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 *  Description :
-*  Replaces every occurance of string 'x' with string 'y' within string 'str'.
+*  Replaces every occurrence of string 'x' with string 'y' within string 'str'.
 *
 *  Function arguments:
 *	char *zstring_replace_str(char *str, const char *x, const char *y)
-*      - str is a pointer to a NULL terminated string of charaters
+*      - str is a pointer to a NULL terminated string of characters
 *      - x is a NULL terminated string that is to be replaced 
 *      - y is a NULL terminated string that will replace the string 
 *	    pointed by 'x'

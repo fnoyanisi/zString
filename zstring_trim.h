@@ -27,14 +27,14 @@
 *  C function to trim leading and trailing white-spaces from a character
 *  string
 *
-*  Function argumenents:
+*  Function arguments:
 *	char *zstring_trim(char *str)
 *      - str is the string of char that is subject to trim operation 
 *
 *  Return values
 *      - the resulting string is returned
 *
-*  Exmaple Usage
+*  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
 *      printf("%sLike free speech!\n",zstring_trim(s));
 *
@@ -73,7 +73,7 @@ char *zstring_trim(char *str){
             in_word=0;
             ++src;
         } else if (is_space==1 && in_word==1) {
-         /* End of a word, dont mind copy white spaces here */
+         /* End of a word, don't mind copy white spaces here */
             in_word=0;
             *dst++ = *src++;
             index = (dst-str)-1; /* location of the last char */
