@@ -24,10 +24,10 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to replace every occurance of chrachter 'x' wihtin string 'str'
+*  C function to replace every occurrence of character 'x' within string 'str'
 *  with character 'y'.
 *
-*  Function argumenents:
+*  Function arguments:
 *	char *zStrrep(char *str, char x,char y)
 *      - str is the string of char that is subject to character replacement
 *      process
@@ -37,7 +37,7 @@
 *  Return values
 *      - the resulting string is returned
 *
-*  Exmaple Usage
+*  Example Usage
 *        char s[]="this is a trial string to test the function.";
 *        char x=' ', y='_';
 *        printf("%s\n",zstring_replace_chr(s,x,y));

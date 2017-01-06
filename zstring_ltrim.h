@@ -26,14 +26,14 @@
 * Description :
 *  C function to trim leading white-spaces from a character string
 *
-*  Function argumenents:
+*  Function arguments:
 *	char *zstring_trim(char *str)
 *      - str is the string of char that is subject to left-trim operation 
 *
 *  Return values
 *      - the resulting string is returned
 *
-*  Exmaple Usage
+*  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
 *      printf("%sLike free speech!\n",zstring_ltrim(s));
 *

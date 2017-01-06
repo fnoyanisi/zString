@@ -32,18 +32,18 @@
 *  C function to remove certain characters provided by a string of characters
 *  from string another string
 *
-*  Function argumenents:
+*  Function arguments:
 *	char *zstring_remove_chr(char *str, char *bad)
 *      - str is the string of char that is subject to character removal
 *      process
 *      - bad is a string of characters that will be removed from str. If one 
-*      wishes to remove comma and undescore from another string, then 
+*      wishes to remove comma and underscore from another string, then 
 *      bad = ",_"
 *
 *  Return values
 *      - the resulting string is returned
 *
-*  Exmaple Usage
+*  Example Usage
 *      char s[]="this is a trial string to test the function.";
 *      char *d=" .";
 *      printf("%s\n",zstring_remove_chr(s,d));
@@ -69,7 +69,7 @@ char *zstring_remove_chr(char *str,const char *bad) {
         if(zstring_search_chr(bad,*src))
             src++;
         else
-            *dst++ = *src++;  /* assign first, then incement */
+            *dst++ = *src++;  /* assign first, then increment */
 
     *dst='\0';
 	return str;

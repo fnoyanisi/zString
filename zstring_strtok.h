@@ -34,7 +34,7 @@
 *
 *  Function arguments:
 *	char *zstring_strtok(char *str, const char *delim)
-*      - str is a pointer to a NULL terminated string of charaters
+*      - str is a pointer to a NULL terminated string of characters
 *      - delim is a NULL terminated character string whose first char
 *      is the delimiter
 *
@@ -81,7 +81,7 @@ char *zstring_strtok(char *str, const char *delim) {
     while(str[strlength])
         strlength++;
 
-    /* find the first occurance of delim */
+    /* find the first occurrence of delim */
     for (index=0;index<strlength;index++)
         if (str[index]==delim[0]) {
             found=1;
@@ -103,7 +103,7 @@ char *zstring_strtok(char *str, const char *delim) {
     }
 
     /* terminate the string
-    * this assignmetn requires char[], so str has to
+    * this assignment requires char[], so str has to
     * be char[] rather than *char
     */
     str[index] = '\0';

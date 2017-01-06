@@ -43,30 +43,30 @@ zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Functions and Usage 
 
-It is enough to include `zstring.h` in your code. Alternatively, any header file can be included seperately for the respective function defined in it.
+It is enough to include `zstring.h` in your code. Alternatively, any header file can be included separately for the respective function defined in it.
 
-Refer the indivudual header file for the function to get more details on its usage and arguments.
+Refer the individual header file for the function to get more details on its usage and arguments.
 
 zstring_search_chr(char *token, char s)::
 Searches for character `s` in string `token`.
 
 zstring_remove_chr(char *str,char *bad)::
 Removes characters contained in string `bad`, from string `str`. Each
-character in `bad` is searched seperately. 
+character in `bad` is searched separately. 
 
 zstring_strtok(char *str, const char *delim)::
 An alternative to standard library's `strtok()` function that is also capable of
 handling successive delimiters.
 
-zstring_strtok_dquotes(char *str, const char *delim,const char quote)::
+zstring_strtok_dquotes(char *str, const char *delim, const char quote)::
 Extended version of `zStrtok()` that treats any text enclosed within `quote`
 characters as a single entry even if `delim` is included in it. 
 
 zstring_replace_chr(char *str, char x, char y)::
-Replaces every occurance of character `x` with character `y` within string `str`.
+Replaces every occurrence of character `x` with character `y` within string `str`.
 
 zstring_replace_str(char *str, char *x, char *y)::
-Replaces every occurance of string `x` with string `y` within string `str`.
+Replaces every occurrence of string `x` with string `y` within string `str`.
 
 zstring_trim(char *str)::
 Trims leading and trailing white-space characters from the character string `str`.

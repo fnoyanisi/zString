@@ -24,10 +24,10 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function that searches the existance of a particular character in
+*  C function that searches the existence of a particular character in
 *  given character string
 *
-*  Function argumenents:
+*  Function arguments:
 *	int zstring_search_chr(char *token,char s)
 *      - token is the string of chars in which s will be searched
 *      - s is a single character that will be searched within token
