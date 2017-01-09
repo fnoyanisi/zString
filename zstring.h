@@ -32,7 +32,7 @@
 #ifndef ZSTRING_H
 #define ZSTRING_H
 
-#define ZSTRING_VER 1.8
+#define ZSTRING_VER "1.8.1"
 
 #ifndef ZSTRING_SEARCH_CHR_H
 #include "zstring_search_chr.h"

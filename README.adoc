@@ -7,6 +7,12 @@ zString does not aim to replace standard library string processing functions but
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
+* *version 1.8.1 - (Jan 2017)*   
+** Fixed typos in comments and README file
+** LICENSE file added to the repo
+** License for zstring_remove_chr.h has been updated as 2-Clause BSD License
+** Changes in version 1.8.1 submitted by GitHub user tbeu 
+
 * *version 1.8 - (Oct 2016)*   
 ** trim family functions are isspace(3) compatible 
 ** added input validation checks for most of the functions  
