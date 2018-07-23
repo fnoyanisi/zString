@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_rtrim.h
-* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -43,35 +43,27 @@
 #ifndef ZSTRING_RTRIM_H
 #define ZSTRING_RTRIM_H
 
-char *zstring_rtrim(char *str){
-    char *src=str;  /* save the original pointer */
-    char *dst=str;  /* result */
-    char c;
-    int is_space=0;
-    int index=0;    /* index of the last non-space char */
+#include <stdio.h>
 
-    /* validate input */
-    if (!str)
-        return str;
+char *
+zstring_rtrim(char *str){
+	char *i = str; /* last non-space character */
+	char *p = str; /* iterator */
+	if (str != NULL) {
+		while (*p != '\0'){
+			if (*p != '\t' && *p != '\v' && *p != '\f' && 
+		    	    *p != '\n' && *p != '\r' && *p != ' ') {
+				i = p;
+			}
+			p++;
+		} 
+	
+		if (*i != '\0'){	
+			*(i+1) = '\0'; /* terminate the string */
+		}
+	}
 
-    /* copy the string */
-    while(*src){
-        *dst++ = *src++;
-        c = *src;
-
-        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
-            is_space=1;
-        else
-            is_space=0;
-
-        if (is_space==0 && *src)
-            index = (src-str)+1;
-    }
-
-    /* terminate the string */
-    *(str+index)='\0';
-
-    return str;
+	return str;
 }
 
 #endif

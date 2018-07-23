@@ -43,7 +43,7 @@
 #ifndef ZSTRING_LTRIM_H
 #define ZSTRING_LTRIM_H
 
-#include <stdio.h> /* NULL */
+#include <stdio.h>
 
 char *
 zstring_ltrim(char *str){
