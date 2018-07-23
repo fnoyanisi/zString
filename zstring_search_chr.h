@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_search_chr.h
-* Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -28,14 +28,14 @@
 *  given character string
 *
 *  Function arguments:
-*	int zstring_search_chr(char *token,char s)
-*      - token is the string of chars in which s will be searched
-*      - s is a single character that will be searched within token
+*	int zstring_search_chr(char *string,char c)
+*      - string is the string of chars in which character c will be searched
+*      - c is a single character that will be searched within string
 *
 *  Return values
-*      - Zero will be returned if either of token or s is NULL or s cannot
-*      be found in token
-*      - 1 returned if s is found in token
+*      - Zero will be returned if either of string or c is NULL or c cannot
+*      be found in the string
+*      - 1 returned if c is found in string
 *
 *  Example Usage
 *      char *t="zString is cool!";
@@ -47,18 +47,11 @@
 #ifndef ZSTRING_SEARCH_CHR_H
 #define ZSTRING_SEARCH_CHR_H
 
-/*
- * "inline"ing this function causes issues when
- * the code is compiled with llvm/clang
- * http://clang.llvm.org/compatibility.html#inline
- */
-int zstring_search_chr(const char *token,char s){
-    if (s=='\0')
-	return 0;
-
-    for (;*token; token++)
-        if (*token == s)
-            return 1;
+int 
+zstring_search_chr(const char *string,char c){
+	for (;*string && c; string++)
+		if (*string == c)
+			return 1;
 
 	return 0;
 }
