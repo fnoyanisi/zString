@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_ltrim.h
-* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -43,33 +43,16 @@
 #ifndef ZSTRING_LTRIM_H
 #define ZSTRING_LTRIM_H
 
-char *zstring_ltrim(char *str){
-    char *src=str;  /* save the original pointer */
-    char *dst=str;  /* result */
-    char c;
-    int index=0;    /* index of the first non-space char */
+#include <stdio.h> /* NULL */
 
-    /* validate input */
-    if (!str)
-        return str;
-    
-    /* skip leading white-spaces */
-    while((c=*src)){ 
-        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' '){
-            ++src;
-            ++index;
-        } else
-            break;
-    }
+char *
+zstring_ltrim(char *str){
+	/* skip leading white-spaces */
+        while ((str != NULL ) && (*str == '\t' || *str == '\v'  
+	    || *str == '\f' || *str == '\n' || *str == '\r' || *str == ' '))
+            ++str;
 
-    /* copy rest of the string */
-    while(*src)
-        *dst++ = *src++;
-
-    /* terminate the string */
-    *(src-index)='\0';
-
-    return str;
+	return str;
 }
 
 #endif
