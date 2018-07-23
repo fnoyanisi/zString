@@ -1,3 +1,9 @@
+# Ignore test files
+###################
 *.c
-*.swp
+*.core
 *.out
+
+# ignore editor swap file
+###################
+*.swp
