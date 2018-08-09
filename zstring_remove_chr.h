@@ -28,23 +28,23 @@
 *  from string another string
 *
 *  Function arguments:
-*	char *zstring_remove_chr(char *str, char *bad)
+*	char *zstring_remove_chr(char *str, char *b)
 *      - str is the string of char that is subject to character removal
 *      process
-*      - bad is a string of characters that will be removed from str. If one 
+*      - b is a string of characters that will be removed from str. If one 
 *      wishes to remove comma and underscore from another string, then 
-*      bad = ",_"
+*      b = ",_"
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Example Usage
-*      char s[]="this is a trial string to test the function.";
-*      char *d=" .";
-*      printf("%s\n",zstring_remove_chr(s,d));
+*      char s[]="this is a random string to test the function.";
+*      char *b=" .";
+*      printf("%s\n",zstring_remove_chr(s,b));
 *
 *  Example Output
-*      thisisatrialstringtotestthefunction
+*      thisisarandomstringtotestthefunction
 ******************************************************************************/
 #ifndef ZSTRING_REMOVE_CHR_H
 #define ZSTRING_REMOVE_CHR_H
@@ -53,20 +53,18 @@
 #include "zstring_search_chr.h"
 #endif
 
-char *zstring_remove_chr(char *str,const char *bad) {
-    char *src = str , *dst = str;
-    
-    /* validate input */
-    if (!(str && bad))
+char *zstring_remove_chr(char *str,const char *b) {
+    char *p;
+    int i;
+
+    if (str == NULL || b == NULL)
         return NULL;
     
-    while(*src)
-        if(zstring_search_chr(bad,*src))
-            src++;
-        else
-            *dst++ = *src++;  /* assign first, then increment */
+    for(p = str, i = 0; *p; p++) 
+        if(zstring_search_chr(b,*p)==0)
+            *(str + i++) = *p;
 
-    *dst='\0';
+    *(str + i)='\0';
 	return str;
 }
 
