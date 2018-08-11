@@ -1,8 +1,8 @@
 == About zString
 
-zString is a C library providing _slightly_ different functionality compared to standard string processing functions in C.
+zString is a C library providing _slightly_ different functionality than the standard library string processing functions.
 
-zString does not aim to replace standard library string processing functions but introduces new routines with different functionalities (such as `zstring_strtok()`)
+zString does not aim to replace standard library string functions, rather introduces new functions with different capabilities (such as `zstring_strtok()`)
 
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
