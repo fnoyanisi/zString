@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_remove_chr.h
-* Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -49,11 +49,14 @@
 #ifndef ZSTRING_REMOVE_CHR_H
 #define ZSTRING_REMOVE_CHR_H
 
+#include <stdio.h>
+
 #ifndef ZSTRING_SEARCH_CHR_H
 #include "zstring_search_chr.h"
 #endif
 
-char *zstring_remove_chr(char *str,const char *b) {
+char *
+zstring_remove_chr(char *str,const char *b) {
     char *p;
     int i;
 

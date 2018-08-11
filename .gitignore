@@ -3,6 +3,7 @@
 *.c
 *.core
 *.out
+*.s
 
 # ignore editor swap file
 ###################

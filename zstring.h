@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring.h
-* Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -32,42 +32,16 @@
 #ifndef ZSTRING_H
 #define ZSTRING_H
 
-#define ZSTRING_VER "1.8.2"
+#define ZSTRING_VER "1.8.3"
 
-#ifndef ZSTRING_SEARCH_CHR_H
 #include "zstring_search_chr.h"
-#endif
-
-#ifndef ZSTRING_REMOVE_CHR_H
 #include "zstring_remove_chr.h"
-#endif
-
-#ifndef ZSTRING_STRTOK_H
 #include "zstring_strtok.h"
-#endif
-
-#ifndef ZSTRING_STRTOK_DQUOTES_H
 #include "zstring_strtok_dquotes.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_CHR_H
 #include "zstring_replace_chr.h"
-#endif
-
-#ifndef ZSTRING_REPLACE_STR_H
 #include "zstring_replace_str.h"
-#endif
-
-#ifndef ZSTRING_TRIM_H
 #include "zstring_trim.h"
-#endif
-
-#ifndef ZSTRING_LTRIM_H
 #include "zstring_ltrim.h"
-#endif
-
-#ifndef ZSTRING_RTRIM_H
 #include "zstring_rtrim.h"
-#endif
 
 #endif

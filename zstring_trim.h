@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_trim.h
-* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -44,46 +44,12 @@
 #ifndef ZSTRING_TRIM_H
 #define ZSTRING_TRIM_H
 
-char *zstring_trim(char *str){
-    char *src=str;  /* save the original pointer */
-    char *dst=str;  /* result */
-    char c;
-    int is_space=0;
-    int in_word=0;  /* word boundary logical check */
-    int index=0;    /* index of the last non-space char*/
+#include "zstring_ltrim.h"
+#include "zstring_rtrim.h"
 
-    /* validate input */
-    if (!str)
-        return str;
-    
-    while ((c=*src)){
-        is_space=0;
-
-        if (c=='\t' || c=='\v' || c=='\f' || c=='\n' || c=='\r' || c==' ')
-            is_space=1;
-
-        if(is_space == 0){
-         /* Found a word */
-            in_word = 1;
-            *dst++ = *src++;  /* make the assignment first
-                               * then increment
-                               */
-        } else if (is_space==1 && in_word==0) {
-         /* Already going through a series of white-spaces */
-            in_word=0;
-            ++src;
-        } else if (is_space==1 && in_word==1) {
-         /* End of a word, don't mind copy white spaces here */
-            in_word=0;
-            *dst++ = *src++;
-            index = (dst-str)-1; /* location of the last char */
-        }
-    }
-
-    /* terminate the string */
-    *(str+index)='\0';
-
-    return str;
+char *
+zstring_trim(char *str){
+	return zstring_rtrim(zstring_ltrim(str));
 }
 
 #endif

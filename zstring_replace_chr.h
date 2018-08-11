@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_replace_chr.h
-* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -28,8 +28,8 @@
 *  with character 'y'.
 *
 *  Function arguments:
-*	char *zStrrep(char *str, char x,char y)
-*      - str is the string of char that is subject to character replacement
+*	char *zstring_replace_chr((char *str, char x,char y)
+*      - str is the string of chars that is subject to character replacement
 *      process
 *      - x is the character to be replaced
 *      - y is the replacement of x
@@ -38,30 +38,30 @@
 *      - the resulting string is returned
 *
 *  Example Usage
-*        char s[]="this is a trial string to test the function.";
+*        char s[]="this is a random string to test the function.";
 *        char x=' ', y='_';
 *        printf("%s\n",zstring_replace_chr(s,x,y));
 *
 *  Example Output
-*        this_is_a_trial_string_to_test_the_function.
+*        this_is_a_random_string_to_test_the_function.
 ******************************************************************************/
 #ifndef ZSTRING_REPLACE_CHR_H
 #define ZSTRING_REPLACE_CHR_H
 
-char *zstring_replace_chr(char *str, char x, char y){
-    char *tmp=str;
+#include <stdio.h>
 
-    /* validate input */
+char *
+zstring_replace_chr(char *str, char x, char y){
+    char *p=str;
+
     if (!str)
         return NULL;
 
-    while(*tmp)
-        if(*tmp == x)
-            *tmp++ = y; /* assign first, then increment */
-        else
-            tmp++;
+    while (*p++)
+        if (*p == x)
+            *p = y;
 
-    *tmp='\0';
+    *p='\0';
     return str;
 }
 

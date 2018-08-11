@@ -28,8 +28,8 @@
 *  given character string
 *
 *  Function arguments:
-*	int zstring_search_chr(char *string,char c)
-*      - string is the string of chars in which character c will be searched
+*	int zstring_search_chr(char *st, char c)
+*      - str is the string of chars in which character c will be searched
 *      - c is a single character that will be searched within string
 *
 *  Return values
@@ -48,9 +48,9 @@
 #define ZSTRING_SEARCH_CHR_H
 
 int 
-zstring_search_chr(const char *string,char c){
-	for (;*string && c; string++)
-		if (*string == c)
+zstring_search_chr(const char *str,char c){
+	for (;*str && c; str++)
+		if (*str == c)
 			return 1;
 
 	return 0;

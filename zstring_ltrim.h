@@ -27,7 +27,7 @@
 *  C function to trim leading white-spaces from a character string
 *
 *  Function arguments:
-*	char *zstring_trim(char *str)
+*	char *zstring_ltrim(char *str)
 *      - str is the string of char that is subject to left-trim operation 
 *
 *  Return values
