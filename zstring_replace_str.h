@@ -46,56 +46,25 @@
 #ifndef ZSTRING_REPLACE_STR_H
 #define ZSTRING_REPLACE_STR_H
 
-char *zstring_replace_str(char *str, const char *x, const char *y){
-    /* to preserve the address of original pointers, tmp_ are used 
-     * dummy_ptr enables us to preserve the address of tmp_str when
-     * a matching string pattern is found
-     * */
-    char *tmp_str = str;
-    const char *tmp_x = x;
-    const char *dummy_ptr = tmp_x; 
-    const char *tmp_y = y;
-    int len_str=0, len_y=0, len_x=0;
+#include <stdio.h>
 
-    /* NULL pointer check */
-    if ((*str && *x && *y)==0)
-        return 0;
+char *
+zstring_replace_str(char *str, const char *x, const char *y){
+	char *p, *s = str;;
+	const char *it;
+	if (s == NULL || x == NULL || y == NULL)
+		return NULL;
 
-    /* calculating length of strings */
-    for(; *tmp_y; ++len_y, ++tmp_y)
-        ;
-
-    for(; *tmp_str; ++len_str, ++tmp_str)
-        ;
-
-    for(; *tmp_x; ++len_x, ++tmp_x)
-        ;
-
-    /* Bounds check */
-    if (len_y >= len_str)
-        return str;
-
-    /* reset tmp pointers */
-    tmp_y = y;
-    tmp_x = x;
-
-    for (tmp_str = str ; *tmp_str; ++tmp_str)
-        if(*tmp_str == *tmp_x) {
-            /* save tmp_str */
-            for (dummy_ptr=tmp_str; *dummy_ptr == *tmp_x; ++tmp_x, ++dummy_ptr)
-                if (*(tmp_x+1) == '\0' && ((dummy_ptr-str+len_y) < len_str)){
-                    /* Reached at the end of x, we got something to replace 
-                     * then!
-                     * Copy y only if there is enough room for it
-                     */
-                    for(tmp_y=y; *tmp_y; ++tmp_y, ++tmp_str)
-                        *tmp_str = *tmp_y;
-            }
-        /* reset tmp_x */
-        tmp_x = x;
-        }
-
-    return str;
+	for (; *s; s++) {
+		for (p = s, it = x; *p && *it && (*p == *it); it++, p++)
+			;
+		if (*it == '\0') {
+		/* got a match */
+			for (it = y, p = s; *p && *it; it++, p++)
+				*p = *it;
+		}
+	}
+	return str;
 }
 
 #endif
