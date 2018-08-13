@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_replace_str.h
-* Copyright (c) 2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@ zstring_replace_str(char *str, const char *x, const char *y){
 	if (s == NULL || x == NULL || y == NULL)
 		return NULL;
 
-	for (; *s; s++) {
-		for (p = s, it = x; *p && *it && (*p == *it); it++, p++)
+	while(*s++) {
+		for (p = s, it = x; (*p == *it) != '\0'; it++, p++)
 			;
 		if (*it == '\0') {
 		/* got a match */
