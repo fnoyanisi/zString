@@ -7,6 +7,9 @@ zString does not aim to replace standard library string functions, rather introd
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Version History
+* *version 1.9 - (Dec 2019)*   
+** added Unity test suite for unit tests
+
 * *version 1.8.3 - (Aug 2018)*   
 ** minor changes to improve run time
 ** zstring_trim() reimplemented by using zstring_ltrim() and zstrin_rtrim()
