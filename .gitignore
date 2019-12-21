@@ -1,10 +1,11 @@
-# Ignore test files
-###################
+# cmake
+build/
+unity/
+.vscode
+.DS_Store
+*.dSYM
 *.c
 *.core
 *.out
 *.s
-
-# ignore editor swap file
-###################
 *.swp
