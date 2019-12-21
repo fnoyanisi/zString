@@ -39,6 +39,7 @@ void test_nothing(void){
     TEST_ASSERT_EQUAL_INT(12, 12);
 }
 
+/* main program */
 int main(){
     UNITY_BEGIN();
         RUN_TEST(test_nothing);
