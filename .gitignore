@@ -4,7 +4,6 @@ unity/
 .vscode
 .DS_Store
 *.dSYM
-*.c
 *.core
 *.out
 *.s
