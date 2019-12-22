@@ -26,23 +26,42 @@
 
 #include <stdio.h>
 #include <unity.h>
+#include <zstring.h>
+
+static char s[]="     Free software is a matter of liberty.     ";
+static char t[]="zString is cool!";
 
 void setUp(void){
-    printf("setup\n");
 }
 
 void tearDown(void){
-    printf("teardown\n");
 }
 
-void test_nothing(void){
-    TEST_ASSERT_EQUAL_INT(12, 12);
+void test_ltrim(void){
+    TEST_ASSERT_EQUAL_STRING("Free software is a matter of liberty.     ",
+                            zstring_ltrim(s));
+}
+
+void test_ltrim_no_change(void){
+    TEST_ASSERT_EQUAL_STRING("zString is cool!",
+                            zstring_ltrim(t));
+}
+
+void test_zstring_search_chr_0(){
+    TEST_ASSERT_EQUAL_INT(0, zstring_search_chr(s, 'x'));
+}
+
+void test_zstring_search_chr_1(){
+    TEST_ASSERT_EQUAL_INT(1, zstring_search_chr(s, 'r'));
 }
 
 /* main program */
 int main(){
     UNITY_BEGIN();
-        RUN_TEST(test_nothing);
+        RUN_TEST(test_ltrim);
+        RUN_TEST(test_ltrim_no_change);
+        RUN_TEST(test_zstring_search_chr_0);
+        RUN_TEST(test_zstring_search_chr_1);
     return UNITY_END();
 }
 
