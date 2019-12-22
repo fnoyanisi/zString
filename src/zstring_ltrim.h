@@ -44,13 +44,13 @@
 #define ZSTRING_LTRIM_H
 
 #include <stdio.h>
+#include <ctype.h>
 
 char *
 zstring_ltrim(char *str){
 	/* skip leading white-spaces */
-        while ((str != NULL ) && (*str == '\t' || *str == '\v'  
-	    || *str == '\f' || *str == '\n' || *str == '\r' || *str == ' '))
-            ++str;
+    while ((str != NULL ) && isspace(*str))
+        ++str;
 
 	return str;
 }
