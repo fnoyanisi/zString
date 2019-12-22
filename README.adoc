@@ -2,9 +2,31 @@
 
 zString is a C library providing _slightly_ different functionality than the standard library string processing functions.
 
-zString does not aim to replace standard library string functions, rather introduces new functions with different capabilities (such as `zstring_strtok()`)
+zString does not aim to replace standard library string functions, rather introduces new methods with different capabilities (such as `zstring_strtok()`)
 
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
+
+== Using zString
+Just include `zstring.h` in your source file and make sure all the header files are in your include path. For instance, for _clang_ ang _gcc_ you can use `-I` option add a directory into your include path.
+
+== Unit tests
+To build tests, you need to checkout https://github.com/ThrowTheSwitch/Unity[Unity test suite] and have  https://cmake.org/overview/[cmake] installed on your system.
+
+....
+~ % git clone https://github.com/fnoyanisi/zString.git         
+~ % cd zString 
+~/zString % ls
+CMakeLists.txt	LICENSE		README.adoc	src		test
+~/zString % git clone https://github.com/ThrowTheSwitch/Unity.git unity
+~/zString % ls
+CMakeLists.txt	README.adoc	test
+LICENSE		src		unity
+~/zString % mkdir build
+~/zString % cd build
+~/zString/build % cmake -DBUILD_TESTS=yes ..
+~/zString/build % cmake --build .
+~/zString/build % 
+....
 
 == Version History
 * *version 1.9 - (Dec 2019)*   
@@ -97,7 +119,4 @@ Trims trailing white-space characters from the character string `str`.
 
 == License
 
-zString can be distributed, modified and used under the terms of 2-clause BSD license (FreeBSD license). 
-
-Fehmi Noyan ISI
-mailto:fnoyanisi@yahoo.com[fnoyanisi@yahoo.com] 
+zString can be distributed, modified and used under the terms of 2-clause BSD license. 
