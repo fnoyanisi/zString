@@ -48,11 +48,11 @@
 #define ZSTRING_SEARCH_CHR_H
 
 int 
-zstring_search_chr(const char *str,char c){
-	for (;*str && c; str++)
-		if (*str == c)
-			return 1;
-
+zstring_search_chr(const char *str, char c){
+	do {
+        if (*str == c)
+            return 1;
+    } while (*str++);
 	return 0;
 }
 
