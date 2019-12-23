@@ -52,16 +52,13 @@
 
 char *
 zstring_replace_chr(char *str, char x, char y){
-    char *p=str;
+    char *i = str;
 
-    if (!str)
-        return NULL;
-
-    while (*p++)
-        if (*p == x)
-            *p = y;
-
-    *p='\0';
+    while (*i){
+        if (*i == x)
+            *i = y;
+        i++;
+    }
     return str;
 }
 
