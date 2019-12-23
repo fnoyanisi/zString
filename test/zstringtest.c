@@ -81,6 +81,17 @@ void test_zstring_replace_chr(void){
     TEST_ASSERT_EQUAL_STRING("zString_is_cool!", zstring_replace_chr(s2,' ','_'));
 }
 
+void test_zstring_replace_str(void){
+    char str[]="this text has some text to be text ";
+    TEST_ASSERT_EQUAL_STRING("this XXXXXXas some XXXXXXo be XXXXX", 
+                            zstring_replace_str(str,"text","XXXXXX"));
+}
+
+void test_zstring_replace_str_none(void){
+    TEST_ASSERT_EQUAL_STRING("zString is cool!", 
+                            zstring_replace_str(s2,"text","XXXXXX"));
+}
+
 /* main program */
 int main(){
     UNITY_BEGIN();
@@ -91,6 +102,8 @@ int main(){
         RUN_TEST(test_zstring_remove_chr);
         RUN_TEST(test_zstring_remove_chr_none);
         RUN_TEST(test_zstring_replace_chr);
+        RUN_TEST(test_zstring_replace_str);
+        RUN_TEST(test_zstring_replace_str_none);
     return UNITY_END();
 }
 
