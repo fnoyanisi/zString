@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_rtrim.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -43,26 +43,15 @@
 #ifndef ZSTRING_RTRIM_H
 #define ZSTRING_RTRIM_H
 
-#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 char *
 zstring_rtrim(char *str){
-	char *i = str; /* last non-space character */
-	char *p = str; /* iterator */
-	if (str != NULL) {
-		while (*p != '\0'){
-			if (*p != '\t' && *p != '\v' && *p != '\f' && 
-		    	    *p != '\n' && *p != '\r' && *p != ' ') {
-				i = p;
-			}
-			p++;
-		} 
-	
-		if (*i != '\0'){	
-			*(i+1) = '\0'; /* terminate the string */
-		}
-	}
-
+	size_t len;
+	for (len = strlen(str); isspace(*(str + len-1)) != 0; len--)
+		;
+	*(str+len) = '\0';
 	return str;
 }
 
