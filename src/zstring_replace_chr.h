@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_replace_chr.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
