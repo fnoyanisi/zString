@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_remove_chr.h
-* Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -24,14 +24,14 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to remove certain characters provided by a string of characters
-*  from string another string
+*  C function to remove characters provided by a string of characters
+*  from another string
 *
 *  Function arguments:
 *	char *zstring_remove_chr(char *str, char *b)
 *      - str is the string of char that is subject to character removal
 *      process
-*      - b is a string of characters that will be removed from str. If one 
+*      - b is a string of characters that will be removed from str. If you 
 *      wishes to remove comma and underscore from another string, then 
 *      b = ",_"
 *
@@ -50,25 +50,22 @@
 #define ZSTRING_REMOVE_CHR_H
 
 #include <stdio.h>
-
-#ifndef ZSTRING_SEARCH_CHR_H
 #include "zstring_search_chr.h"
-#endif
 
 char *
 zstring_remove_chr(char *str,const char *b) {
-    char *p;
-    int i;
+    char *p; /* pointer to the end of the string */
+    char *i; /* iterator */
+    p = i = str;
 
-    if (str == NULL || b == NULL)
-        return NULL;
-    
-    for(p = str, i = 0; *p; p++) 
-        if(zstring_search_chr(b,*p)==0)
-            *(str + i++) = *p;
+    while(*i){
+        if (zstring_search_chr(b,*i) == 0)
+            *p++ = *i;
+        i++;
+    }
+    *p = '\0';
 
-    *(str + i)='\0';
-	return str;
+    return str;
 }
 
 #endif
