@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_replace_str.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -35,7 +35,13 @@
 *  Return values
 *      - NULL in case any of the arguments is NULL
 *      - Modified string is returned 
-*
+*  
+*  Notes
+*      This function only replaces part of the first string with the
+*      second one until end of the current buffer. If replacement exceeds
+*      bounds of the existing buffer, the secon string is truncated and
+*      only a part of it copied over.
+*      
 *  Example Usage
 *      char str[] = "'free' as in 'free speech', not as in 'free beer'";
 *      printf("%s\n",zstring_replace_str(str,"free","KLMN"));
@@ -47,22 +53,27 @@
 #define ZSTRING_REPLACE_STR_H
 
 #include <stdio.h>
+#include <string.h>
 
 char *
 zstring_replace_str(char *str, const char *x, const char *y){
-	char *p, *s = str;;
-	const char *it;
-	if (s == NULL || x == NULL || y == NULL)
-		return NULL;
+	char *p = str;
+	size_t tlen = strlen(str);	/* total length of the buffer */
+	size_t clen, ylen = strlen(y);	/* clen - copy length */
 
-	while(*s++) {
-		for (p = s, it = x; (*p == *it) != '\0'; it++, p++)
-			;
-		if (*it == '\0') {
-		/* got a match */
-			for (it = y, p = s; *p && *it; it++, p++)
-				*p = *it;
-		}
+	while ((p = strstr(str, x))!= NULL) {
+		/* litte bit of pointer arithmetic
+		 *
+		 *		     tlen       (str + tlen)
+		 *   |-----------------------|
+		 *   |                 |     |           |
+		 *  str................p.............(p + ylen)
+		 *   |<--------------->|<---->
+		 *         (p - str)     (str + tlen - p)
+		 */ 
+		clen = ((p - str + ylen) <= tlen) ? ylen : (str + tlen - p);			
+		p = strncpy(p, y, clen);
+		p += clen;
 	}
 	return str;
 }
