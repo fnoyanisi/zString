@@ -59,7 +59,7 @@ zstring_remove_chr(char *str,const char *b) {
     p = i = str;
 
     while(*i){
-        if (zstring_search_chr(b,*i) == 0)
+        if (zstring_search_chr(b,*i) == -1)
             *p++ = *i;
         i++;
     }

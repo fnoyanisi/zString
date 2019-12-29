@@ -33,9 +33,10 @@
 *      - c is a single character that will be searched within string
 *
 *  Return values
-*      - Zero will be returned if either of string or c is NULL or c cannot
+*      - (-1) will be returned if either of string or c is NULL or c cannot
 *      be found in the string
-*      - 1 returned if c is found in string
+*      - index of c is returned if c is found in string, indexing starts from
+*      zero
 *
 *  Example Usage
 *      char *t="zString is cool!";
@@ -49,11 +50,12 @@
 
 int 
 zstring_search_chr(const char *str, char c){
+    const char *p = str;
 	do {
-        if (*str == c)
-            return 1;
-    } while (*str++);
-	return 0;
+        if (*p == c)
+            return (p-str);
+    } while (*p++);
+	return (-1);
 }
 
 #endif
