@@ -1,6 +1,6 @@
 /******************************************************************************
 * zstring_strtok.h
-* Copyright (c) 2012-2016, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -63,56 +63,49 @@
 #ifndef ZSTRING_STRTOK_H
 #define ZSTRING_STRTOK_H
 
-char *zstring_strtok(char *str, const char *delim) {
-    static char *static_str=0;    	/* var to store last address */
-    int index=0, strlength=0;      	/* integers for indexes */
-    int found = 0;              	/* check if delim is found */
+#include <stdio.h>
+#include <string.h>
 
-    /* delimiter cannot be NULL
-    * if no more char left, return NULL as well
-    */
-    if (delim==0 || (str == 0 && static_str == 0))
-        return 0;
+char *
+zstring_strtok(char *str, const char *delim) {
+    static char *s_str = NULL;   /* var to store last address */
+    char *p;
+    size_t len;
 
-    if (str == 0)
-        str = static_str;
+    if (delim == NULL || (str == NULL && s_str == NULL)){
+        return NULL;
+    }
 
-    /* get length of string */
-    while(str[strlength])
-        strlength++;
+    if (str == NULL){
+        str = s_str;
+    }
 
-    /* find the first occurrence of delim */
-    for (index=0;index<strlength;index++)
-        if (str[index]==delim[0]) {
-            found=1;
-            break;
-        }
+    len = strlen(str);
 
     /* if delim is not contained in str, return str */
-    if (!found) {
-        static_str = 0;
+    if ((p = strstr(str,delim)) == NULL) {
+        s_str = NULL;
         return str;
     }
 
-    /* check for consecutive delimiters
-    *if first char is delim, return delim
+    /* 
+    * check for consecutive delimiters
+    * if first char is delim, return delim
     */
-    if (str[0]==delim[0]) {
-        static_str = (str + 1);
+    if (str[0] == delim[0]) {
+        s_str++;
         return (char *)delim;
     }
 
-    /* terminate the string
-    * this assignment requires char[], so str has to
-    * be char[] rather than *char
-    */
-    str[index] = '\0';
+    /* terminate the string */
+    *p = '\0';
 
     /* save the rest of the string */
-    if ((str + index + 1)!=0)
-        static_str = (str + index + 1);
-    else
-        static_str = 0;
+    if ((p+1) != NULL) {
+        s_str = (p + 1);
+    } else {
+        s_str = NULL;
+    }
 
         return str;
 }
