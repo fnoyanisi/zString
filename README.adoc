@@ -31,6 +31,8 @@ LICENSE		src		unity
 == Version History
 * *version 1.9 - (Dec 2019)*   
 ** added Unity test suite for unit tests
+** using standard library functions
+** changed function and header file names
 
 * *version 1.8.3 - (Aug 2018)*   
 ** minor changes to improve run time
@@ -87,34 +89,34 @@ It is enough to include `zstring.h` in your code. Alternatively, any header file
 
 Refer the individual header file for the function to get more details on its usage and arguments.
 
-zstring_search_chr(char *token, char s)::
+zstrchr(char *token, char s)::
 Searches for character `s` in string `token`.
 
-zstring_remove_chr(char *str,char *bad)::
+zrmvchr(char *str,char *bad)::
 Removes characters contained in string `bad`, from string `str`. Each
 character in `bad` is searched separately. 
 
-zstring_strtok(char *str, const char *delim)::
+zstrtok(char *str, const char *delim)::
 An alternative to standard library's `strtok()` function that is also capable of
 handling successive delimiters.
 
-zstring_strtok_dquotes(char *str, const char *delim, const char quote)::
+zstrtok_d(char *str, const char *delim, const char quote)::
 Extended version of `zStrtok()` that treats any text enclosed within `quote`
 characters as a single entry even if `delim` is included in it. 
 
-zstring_replace_chr(char *str, char x, char y)::
+zrepchr(char *str, char x, char y)::
 Replaces every occurrence of character `x` with character `y` within string `str`.
 
-zstring_replace_str(char *str, char *x, char *y)::
+zrepstr(char *str, char *x, char *y)::
 Replaces every occurrence of string `x` with string `y` within string `str`.
 
-zstring_trim(char *str)::
+zstrtrm(char *str)::
 Trims leading and trailing white-space characters from the character string `str`.
 
-zstring_ltrim(char *str)::
+zstrtrm_l(char *str)::
 Trims leading white-space characters from the character string `str`.
 
-zstring_rtrim(char *str)::
+zstrtrm_r(char *str)::
 Trims trailing white-space characters from the character string `str`.
 
 == License
