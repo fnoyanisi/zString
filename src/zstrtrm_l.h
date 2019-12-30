@@ -27,7 +27,7 @@
 *  C function to trim leading white-spaces from a character string
 *
 *  Function arguments:
-*	char *zstring_ltrim(char *str)
+*	char *zstrtrm_l(char *str)
 *      - str is the string of char that is subject to left-trim operation 
 *
 *  Return values
@@ -35,19 +35,19 @@
 *
 *  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstring_ltrim(s));
+*      printf("%sLike free speech!\n",zstrtrm_l(s));
 *
 *  Example Output
 *      Free software is a matter of liberty.     Like free speech!
 ******************************************************************************/
-#ifndef ZSTRING_LTRIM_H
-#define ZSTRING_LTRIM_H
+#ifndef ZSTRTRM_L_H
+#define ZSTRTRM_L_H
 
 #include <stdio.h>
 #include <ctype.h>
 
 char *
-zstring_ltrim(char *str){
+zstrtrm_l(char *str){
 	/* skip leading white-spaces */
     while ((str != NULL ) && isspace(*str))
         ++str;

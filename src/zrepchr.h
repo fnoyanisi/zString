@@ -28,7 +28,7 @@
 *  with character 'y'.
 *
 *  Function arguments:
-*	char *zstring_replace_chr((char *str, char x,char y)
+*	char *zrepchr((char *str, char x,char y)
 *      - str is the string of chars that is subject to character replacement
 *      process
 *      - x is the character to be replaced
@@ -40,18 +40,18 @@
 *  Example Usage
 *        char s[]="this is a random string to test the function.";
 *        char x=' ', y='_';
-*        printf("%s\n",zstring_replace_chr(s,x,y));
+*        printf("%s\n",zrepchr(s,x,y));
 *
 *  Example Output
 *        this_is_a_random_string_to_test_the_function.
 ******************************************************************************/
-#ifndef ZSTRING_REPLACE_CHR_H
-#define ZSTRING_REPLACE_CHR_H
+#ifndef ZREPCHR_H
+#define ZREPCHR_H
 
 #include <stdio.h>
 
 char *
-zstring_replace_chr(char *str, char x, char y){
+zrepchr(char *str, char x, char y){
     char *i = str;
 
     while (*i){

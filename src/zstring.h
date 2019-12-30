@@ -34,14 +34,14 @@
 
 #define ZSTRING_VER "1.9"
 
-#include "zstring_search_chr.h"
-#include "zstring_remove_chr.h"
-#include "zstring_strtok.h"
-#include "zstring_strtok_dquotes.h"
-#include "zstring_replace_chr.h"
-#include "zstring_replace_str.h"
-#include "zstring_trim.h"
-#include "zstring_ltrim.h"
-#include "zstring_rtrim.h"
+#include "zstrchr.h"
+#include "zrmvchr.h"
+#include "zstrtok.h"
+#include "zstrtok_d.h"
+#include "zrepchr.h"
+#include "zrepstr.h"
+#include "zstrtrm.h"
+#include "zstrtrm_l.h"
+#include "zstrtrm_r.h"
 
 #endif

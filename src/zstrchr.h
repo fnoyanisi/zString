@@ -28,7 +28,7 @@
 *  given character string
 *
 *  Function arguments:
-*	int zstring_search_chr(char *st, char c)
+*	int zstrchr(char *st, char c)
 *      - str is the string of chars in which character c will be searched
 *      - c is a single character that will be searched within string
 *
@@ -40,16 +40,16 @@
 *
 *  Example Usage
 *      char *t="zString is cool!";
-*      printf("%d\n",zstring_search_chr(t,'t'));
+*      printf("%d\n",zstrchr(t,'t'));
 *
 *  Example Output
 *      1
 ******************************************************************************/
-#ifndef ZSTRING_SEARCH_CHR_H
-#define ZSTRING_SEARCH_CHR_H
+#ifndef ZSTRCHR_H
+#define ZSTRCHR_H
 
 int 
-zstring_search_chr(const char *str, char c){
+zstrchr(const char *str, char c){
     const char *p = str;
 	do {
         if (*p == c)

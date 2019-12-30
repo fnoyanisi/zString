@@ -27,7 +27,7 @@
 *  C function to trim trailing white-spaces from a character string
 *
 *  Function arguments:
-*	char *zstring_trim(char *str)
+*	char *zstrtrm(char *str)
 *      - str is the string of char that is subject to right-trim operation 
 *
 *  Return values
@@ -35,19 +35,19 @@
 *
 *  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstring_ltrim(s));
+*      printf("%sLike free speech!\n",zstrtrm_l(s));
 *
 *  Example Output
 *           Free software is a matter of liberty.Like free speech!
 *************************************************************************/
-#ifndef ZSTRING_RTRIM_H
-#define ZSTRING_RTRIM_H
+#ifndef ZSTRTRM_R_H
+#define ZSTRTRM_R_H
 
 #include <string.h>
 #include <ctype.h>
 
 char *
-zstring_rtrim(char *str){
+zstrtrm_r(char *str){
 	size_t len;
 	for (len = strlen(str); isspace(*(str + len-1)) != 0; len--)
 		;

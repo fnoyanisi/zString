@@ -51,95 +51,95 @@ void tearDown(void){
     free(s2);
 }
 
-void test_ltrim(void){
+void test_zstrtrm_l(void){
     TEST_ASSERT_EQUAL_STRING("Free software is a matter of liberty.     ",
-                            zstring_ltrim(s1));
+                            zstrtrm_l(s1));
 }
 
-void test_ltrim_no_change(void){
+void test_zstrtrm_l_no_change(void){
     TEST_ASSERT_EQUAL_STRING("zString is cool!",
-                            zstring_ltrim(s2));
+                            zstrtrm_l(s2));
 }
 
-void test_zstring_search_chr_0(void){
-    TEST_ASSERT_EQUAL_INT(-1, zstring_search_chr(s1, 'x'));
+void test_zstrchr_0(void){
+    TEST_ASSERT_EQUAL_INT(-1, zstrchr(s1, 'x'));
 }
 
-void test_zstring_search_chr_1(void){
-    TEST_ASSERT_EQUAL_INT(1, zstring_search_chr(s2, 'S'));
+void test_zstrchr_1(void){
+    TEST_ASSERT_EQUAL_INT(1, zstrchr(s2, 'S'));
 }
 
-void test_zstring_remove_chr(void){
-    TEST_ASSERT_EQUAL_STRING("Stringiscl!", zstring_remove_chr(s2,"o z"));
+void test_zrmvchr(void){
+    TEST_ASSERT_EQUAL_STRING("Stringiscl!", zrmvchr(s2,"o z"));
 }
 
-void test_zstring_remove_chr_none(void){
-    TEST_ASSERT_EQUAL_STRING("zString is cool!", zstring_remove_chr(s2,"xqw"));
+void test_zrmvchr_none(void){
+    TEST_ASSERT_EQUAL_STRING("zString is cool!", zrmvchr(s2,"xqw"));
 }
 
-void test_zstring_replace_chr(void){
-    TEST_ASSERT_EQUAL_STRING("zString_is_cool!", zstring_replace_chr(s2,' ','_'));
+void test_zrepchr(void){
+    TEST_ASSERT_EQUAL_STRING("zString_is_cool!", zrepchr(s2,' ','_'));
 }
 
-void test_zstring_replace_str(void){
+void test_zrepstr(void){
     char str[]="this text has some text to be text ";
     TEST_ASSERT_EQUAL_STRING("this XXXXXXas some XXXXXXo be XXXXX", 
-                            zstring_replace_str(str,"text","XXXXXX"));
+                            zrepstr(str,"text","XXXXXX"));
 }
 
-void test_zstring_replace_str_none(void){
+void test_zrepstr_none(void){
     TEST_ASSERT_EQUAL_STRING("zString is cool!", 
-                            zstring_replace_str(s2,"text","XXXXXX"));
+                            zrepstr(s2,"text","XXXXXX"));
 }
 
-void test_zstring_rtrim(void){
+void test_zstrtrm_r(void){
     TEST_ASSERT_EQUAL_STRING("     Free software is a matter of liberty.", 
-                            zstring_rtrim(s1));
+                            zstrtrm_r(s1));
 }
 
-void test_zstring_rtrim_none(void){
+void test_zstrtrm_r_none(void){
     TEST_ASSERT_EQUAL_STRING("zString is cool!", 
-                            zstring_rtrim(s2));
+                            zstrtrm_r(s2));
 }
 
-void test_zstring_trim(void){
+void test_zstrtrm(void){
     TEST_ASSERT_EQUAL_STRING("Free software is a matter of liberty.", 
-                            zstring_trim(s1));
+                            zstrtrm(s1));
 }
 
-void test_zstring_trim_none(void){
+void test_zstrtrm_none(void){
     TEST_ASSERT_EQUAL_STRING("zString is cool!", 
-                            zstring_trim(s2));
+                            zstrtrm(s2));
 }
 
-void test_zstring_strtok(void){
+void test_zstrtok(void){
     char str[] = "A,B,,,C";
     const char *exp[]={"A","B",",",",","C"};
 
-    TEST_ASSERT_EQUAL_STRING("A", zstring_strtok(str,","));
-    TEST_ASSERT_EQUAL_STRING("B", zstring_strtok(NULL,","));
-    TEST_ASSERT_EQUAL_STRING(",", zstring_strtok(NULL,","));
-    TEST_ASSERT_EQUAL_STRING(",", zstring_strtok(NULL,","));
-    TEST_ASSERT_EQUAL_STRING("C", zstring_strtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING("A", zstrtok(str,","));
+    TEST_ASSERT_EQUAL_STRING("B", zstrtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING(",", zstrtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING(",", zstrtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING("C", zstrtok(NULL,","));
 }
 
 /* main program */
 int main(){
     UNITY_BEGIN();
-        RUN_TEST(test_ltrim);
-        RUN_TEST(test_ltrim_no_change);
-        RUN_TEST(test_zstring_search_chr_0);
-        RUN_TEST(test_zstring_search_chr_1);
-        RUN_TEST(test_zstring_remove_chr);
-        RUN_TEST(test_zstring_remove_chr_none);
-        RUN_TEST(test_zstring_replace_chr);
-        RUN_TEST(test_zstring_replace_str);
-        RUN_TEST(test_zstring_replace_str_none);
-        RUN_TEST(test_zstring_rtrim);
-        RUN_TEST(test_zstring_rtrim_none);
-        RUN_TEST(test_zstring_trim);
-        RUN_TEST(test_zstring_trim_none);
-        RUN_TEST(test_zstring_strtok);
+        RUN_TEST(test_zstrtrm_l);
+        RUN_TEST(test_zstrtrm_l_no_change);
+        RUN_TEST(test_zstrchr_0);
+        RUN_TEST(test_zstrchr_1);
+        RUN_TEST(test_zrmvchr);
+        RUN_TEST(test_zrmvchr_none);
+        RUN_TEST(test_zrepchr);
+        RUN_TEST(test_zrepstr);
+        RUN_TEST(test_zrepstr_none);
+        RUN_TEST(test_zstrtrm_r);
+        RUN_TEST(test_zstrtrm_r_none);
+        RUN_TEST(test_zstrtrm);
+        RUN_TEST(test_zstrtrm_none);
+        RUN_TEST(test_zstrtok);
     return UNITY_END();
 }
 

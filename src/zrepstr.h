@@ -26,7 +26,7 @@
 *  Replaces every occurrence of string 'x' with string 'y' within string 'str'.
 *
 *  Function arguments:
-*	char *zstring_replace_str(char *str, const char *x, const char *y)
+*	char *zrepstr(char *str, const char *x, const char *y)
 *      - str is a pointer to a NULL terminated string of characters
 *      - x is a NULL terminated string that is to be replaced 
 *      - y is a NULL terminated string that will replace the string 
@@ -44,19 +44,19 @@
 *      
 *  Example Usage
 *      char str[] = "'free' as in 'free speech', not as in 'free beer'";
-*      printf("%s\n",zstring_replace_str(str,"free","KLMN"));
+*      printf("%s\n",zrepstr(str,"free","KLMN"));
 *
 *  Example Output
 *      'KLMN' as in 'KLMN speech', not as in 'KLMN beer'";
 ******************************************************************************/
-#ifndef ZSTRING_REPLACE_STR_H
-#define ZSTRING_REPLACE_STR_H
+#ifndef ZREPSTR_H
+#define ZREPSTR_H
 
 #include <stdio.h>
 #include <string.h>
 
 char *
-zstring_replace_str(char *str, const char *x, const char *y){
+zrepstr(char *str, const char *x, const char *y){
 	char *p = str;
 	size_t tlen = strlen(str);	/* total length of the buffer */
 	size_t clen, ylen = strlen(y);	/* clen - copy length */

@@ -24,16 +24,16 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 *  Description :
-*  zstring_strtok_dquotes() is added into zstring library to be able to comply 
+*  zstrtok_d() is added into zstring library to be able to comply 
 *  with RFC4180 Clause-5 while processing text/csv MIME type.
-*  This function extends the operation of zstring_strtok() function by treating 
+*  This function extends the operation of zstrtok() function by treating 
 *  any text enclosed within 'quote' characters as a single phrase and ignores
 *  any 'delim' included in that particular phrase.
 *
-*  Please refer to the description of zstring_strtok() function for more details.
+*  Please refer to the description of zstrtok() function for more details.
 *
 *  Function arguments:
-*	char *zstring_strtok_dquotes(char *str, const char *delim, const char 
+*	char *zstrtok_d(char *str, const char *delim, const char 
 *       quote)
 *      - str is a pointer to a NULL terminated string of characters
 *      - delim is a NULL terminated character string whose first char
@@ -48,12 +48,12 @@
 *  Example Usage
 *      char s[]="aaaa,bbbb,\"ccc,c\",dddd,eeee,\"ff,ff\"";
 *
-*      printf("1 %s\n",zstring_strtok_dquotes(s,",",'\"'));
-*      printf("2 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-*      printf("3 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-*      printf("4 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-*      printf("5 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
-*      printf("6 %s\n",zstring_strtok_dquotes(NULL,",",'\"'));
+*      printf("1 %s\n",zstrtok_d(s,",",'\"'));
+*      printf("2 %s\n",zstrtok_d(NULL,",",'\"'));
+*      printf("3 %s\n",zstrtok_d(NULL,",",'\"'));
+*      printf("4 %s\n",zstrtok_d(NULL,",",'\"'));
+*      printf("5 %s\n",zstrtok_d(NULL,",",'\"'));
+*      printf("6 %s\n",zstrtok_d(NULL,",",'\"'));
 *
 *  Example Output
 *      1 aaaa
@@ -63,10 +63,10 @@
 *      5 eeee
 *      6 "ff,ff"
 ******************************************************************************/
-#ifndef ZSTRING_STRTOK_DQUOTES_H
-#define ZSTRING_STRTOK_DQUOTES_H
+#ifndef ZSTRTOK_D_H
+#define ZSTRTOK_D_H
 
-char *zstring_strtok_dquotes(char *str, const char *delim, const char quote) {
+char *zstrtok_d(char *str, const char *delim, const char quote) {
     static char *static_str=0;    	/* var to store last address */
     int index=0, strlength=0;       /* integers for indexes */
     int found=0;              	    /* check if delim is found */

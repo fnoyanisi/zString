@@ -28,7 +28,7 @@
 *  string
 *
 *  Function arguments:
-*	char *zstring_trim(char *str)
+*	char *zstrtrm(char *str)
 *      - str is the string of char that is subject to trim operation 
 *
 *  Return values
@@ -36,20 +36,20 @@
 *
 *  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstring_trim(s));
+*      printf("%sLike free speech!\n",zstrtrm(s));
 *
 *  Example Output
 *      Free software is a matter of liberty.Like free speech!
 ******************************************************************************/
-#ifndef ZSTRING_TRIM_H
-#define ZSTRING_TRIM_H
+#ifndef ZSTRTRM_H
+#define ZSTRTRM_H
 
 #include "zstrtrm_l.h"
 #include "zstrtrm_r.h"
 
 char *
-zstring_trim(char *str){
-	return zstring_rtrim(zstring_ltrim(str));
+zstrtrm(char *str){
+	return zstrtrm_r(zstrtrm_l(str));
 }
 
 #endif

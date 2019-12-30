@@ -28,7 +28,7 @@
 *  from another string
 *
 *  Function arguments:
-*	char *zstring_remove_chr(char *str, char *b)
+*	char *zrmvchr(char *str, char *b)
 *      - str is the string of char that is subject to character removal
 *      process
 *      - b is a string of characters that will be removed from str. If you 
@@ -41,25 +41,25 @@
 *  Example Usage
 *      char s[]="this is a random string to test the function.";
 *      char *b=" .";
-*      printf("%s\n",zstring_remove_chr(s,b));
+*      printf("%s\n",zrmvchr(s,b));
 *
 *  Example Output
 *      thisisarandomstringtotestthefunction
 ******************************************************************************/
-#ifndef ZSTRING_REMOVE_CHR_H
-#define ZSTRING_REMOVE_CHR_H
+#ifndef ZRMVCHR_H
+#define ZRMVCHR_H
 
 #include <stdio.h>
 #include "zstrchr.h"
 
 char *
-zstring_remove_chr(char *str,const char *b) {
+zrmvchr(char *str,const char *b) {
     char *p; /* pointer to the end of the string */
     char *i; /* iterator */
     p = i = str;
 
     while(*i){
-        if (zstring_search_chr(b,*i) == -1)
+        if (zstrchr(b,*i) == -1)
             *p++ = *i;
         i++;
     }
