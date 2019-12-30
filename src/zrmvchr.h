@@ -1,12 +1,12 @@
 /******************************************************************************
-* zstring_trim.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* zrmvchr.h
+* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-* 1. Redistributions of source code must retain the above copyright
 *
+* 1. Redistributions of source code must retain the above copyright
 *   notice, this list of conditions and the following disclaimer.
 * 2. Redistributions in binary form must reproduce the above copyright
 *   notice, this list of conditions and the following disclaimer in the
@@ -24,32 +24,48 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to trim leading and trailing white-spaces from a character
-*  string
+*  C function to remove characters provided by a string of characters
+*  from another string
 *
 *  Function arguments:
-*	char *zstring_trim(char *str)
-*      - str is the string of char that is subject to trim operation 
+*	char *zstring_remove_chr(char *str, char *b)
+*      - str is the string of char that is subject to character removal
+*      process
+*      - b is a string of characters that will be removed from str. If you 
+*      wishes to remove comma and underscore from another string, then 
+*      b = ",_"
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Example Usage
-*      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstring_trim(s));
+*      char s[]="this is a random string to test the function.";
+*      char *b=" .";
+*      printf("%s\n",zstring_remove_chr(s,b));
 *
 *  Example Output
-*      Free software is a matter of liberty.Like free speech!
+*      thisisarandomstringtotestthefunction
 ******************************************************************************/
-#ifndef ZSTRING_TRIM_H
-#define ZSTRING_TRIM_H
+#ifndef ZSTRING_REMOVE_CHR_H
+#define ZSTRING_REMOVE_CHR_H
 
-#include "zstring_ltrim.h"
-#include "zstring_rtrim.h"
+#include <stdio.h>
+#include "zstrchr.h"
 
 char *
-zstring_trim(char *str){
-	return zstring_rtrim(zstring_ltrim(str));
+zstring_remove_chr(char *str,const char *b) {
+    char *p; /* pointer to the end of the string */
+    char *i; /* iterator */
+    p = i = str;
+
+    while(*i){
+        if (zstring_search_chr(b,*i) == -1)
+            *p++ = *i;
+        i++;
+    }
+    *p = '\0';
+
+    return str;
 }
 
 #endif

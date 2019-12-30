@@ -62,11 +62,11 @@ void test_ltrim_no_change(void){
 }
 
 void test_zstring_search_chr_0(void){
-    TEST_ASSERT_EQUAL_INT(0, zstring_search_chr(s1, 'x'));
+    TEST_ASSERT_EQUAL_INT(-1, zstring_search_chr(s1, 'x'));
 }
 
 void test_zstring_search_chr_1(void){
-    TEST_ASSERT_EQUAL_INT(1, zstring_search_chr(s1, 'r'));
+    TEST_ASSERT_EQUAL_INT(1, zstring_search_chr(s2, 'S'));
 }
 
 void test_zstring_remove_chr(void){
@@ -92,6 +92,37 @@ void test_zstring_replace_str_none(void){
                             zstring_replace_str(s2,"text","XXXXXX"));
 }
 
+void test_zstring_rtrim(void){
+    TEST_ASSERT_EQUAL_STRING("     Free software is a matter of liberty.", 
+                            zstring_rtrim(s1));
+}
+
+void test_zstring_rtrim_none(void){
+    TEST_ASSERT_EQUAL_STRING("zString is cool!", 
+                            zstring_rtrim(s2));
+}
+
+void test_zstring_trim(void){
+    TEST_ASSERT_EQUAL_STRING("Free software is a matter of liberty.", 
+                            zstring_trim(s1));
+}
+
+void test_zstring_trim_none(void){
+    TEST_ASSERT_EQUAL_STRING("zString is cool!", 
+                            zstring_trim(s2));
+}
+
+void test_zstring_strtok(void){
+    char str[] = "A,B,,,C";
+    const char *exp[]={"A","B",",",",","C"};
+
+    TEST_ASSERT_EQUAL_STRING("A", zstring_strtok(str,","));
+    TEST_ASSERT_EQUAL_STRING("B", zstring_strtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING(",", zstring_strtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING(",", zstring_strtok(NULL,","));
+    TEST_ASSERT_EQUAL_STRING("C", zstring_strtok(NULL,","));
+}
+
 /* main program */
 int main(){
     UNITY_BEGIN();
@@ -104,6 +135,11 @@ int main(){
         RUN_TEST(test_zstring_replace_chr);
         RUN_TEST(test_zstring_replace_str);
         RUN_TEST(test_zstring_replace_str_none);
+        RUN_TEST(test_zstring_rtrim);
+        RUN_TEST(test_zstring_rtrim_none);
+        RUN_TEST(test_zstring_trim);
+        RUN_TEST(test_zstring_trim_none);
+        RUN_TEST(test_zstring_strtok);
     return UNITY_END();
 }
 

@@ -1,5 +1,5 @@
 /******************************************************************************
-* zstring_strtok.h
+* zstrtok.h
 * Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *

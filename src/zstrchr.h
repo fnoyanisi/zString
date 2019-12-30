@@ -1,6 +1,6 @@
 /******************************************************************************
-* zstring_ltrim.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* zstrchr.h
+* Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -24,35 +24,38 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to trim leading white-spaces from a character string
+*  C function that searches the existence of a particular character in
+*  given character string
 *
 *  Function arguments:
-*	char *zstring_ltrim(char *str)
-*      - str is the string of char that is subject to left-trim operation 
+*	int zstring_search_chr(char *st, char c)
+*      - str is the string of chars in which character c will be searched
+*      - c is a single character that will be searched within string
 *
 *  Return values
-*      - the resulting string is returned
+*      - (-1) will be returned if either of string or c is NULL or c cannot
+*      be found in the string
+*      - index of c is returned if c is found in string, indexing starts from
+*      zero
 *
 *  Example Usage
-*      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstring_ltrim(s));
+*      char *t="zString is cool!";
+*      printf("%d\n",zstring_search_chr(t,'t'));
 *
 *  Example Output
-*      Free software is a matter of liberty.     Like free speech!
+*      1
 ******************************************************************************/
-#ifndef ZSTRING_LTRIM_H
-#define ZSTRING_LTRIM_H
+#ifndef ZSTRING_SEARCH_CHR_H
+#define ZSTRING_SEARCH_CHR_H
 
-#include <stdio.h>
-#include <ctype.h>
-
-char *
-zstring_ltrim(char *str){
-	/* skip leading white-spaces */
-    while ((str != NULL ) && isspace(*str))
-        ++str;
-
-	return str;
+int 
+zstring_search_chr(const char *str, char c){
+    const char *p = str;
+	do {
+        if (*p == c)
+            return (p-str);
+    } while (*p++);
+	return (-1);
 }
 
 #endif

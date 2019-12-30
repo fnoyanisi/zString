@@ -1,5 +1,5 @@
 /******************************************************************************
-* zstring_rtrim.h
+* zstrtrm_r.h
 * Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *

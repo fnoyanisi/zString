@@ -1,12 +1,12 @@
 /******************************************************************************
-* zstring_replace_chr.h
-* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* zstrtrm.h
+* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-*
 * 1. Redistributions of source code must retain the above copyright
+*
 *   notice, this list of conditions and the following disclaimer.
 * 2. Redistributions in binary form must reproduce the above copyright
 *   notice, this list of conditions and the following disclaimer in the
@@ -24,42 +24,32 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to replace every occurrence of character 'x' within string 'str'
-*  with character 'y'.
+*  C function to trim leading and trailing white-spaces from a character
+*  string
 *
 *  Function arguments:
-*	char *zstring_replace_chr((char *str, char x,char y)
-*      - str is the string of chars that is subject to character replacement
-*      process
-*      - x is the character to be replaced
-*      - y is the replacement of x
+*	char *zstring_trim(char *str)
+*      - str is the string of char that is subject to trim operation 
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Example Usage
-*        char s[]="this is a random string to test the function.";
-*        char x=' ', y='_';
-*        printf("%s\n",zstring_replace_chr(s,x,y));
+*      char s[]="     Free software is a matter of liberty.     ";
+*      printf("%sLike free speech!\n",zstring_trim(s));
 *
 *  Example Output
-*        this_is_a_random_string_to_test_the_function.
+*      Free software is a matter of liberty.Like free speech!
 ******************************************************************************/
-#ifndef ZSTRING_REPLACE_CHR_H
-#define ZSTRING_REPLACE_CHR_H
+#ifndef ZSTRING_TRIM_H
+#define ZSTRING_TRIM_H
 
-#include <stdio.h>
+#include "zstrtrm_l.h"
+#include "zstrtrm_r.h"
 
 char *
-zstring_replace_chr(char *str, char x, char y){
-    char *i = str;
-
-    while (*i){
-        if (*i == x)
-            *i = y;
-        i++;
-    }
-    return str;
+zstring_trim(char *str){
+	return zstring_rtrim(zstring_ltrim(str));
 }
 
 #endif

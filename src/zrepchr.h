@@ -1,6 +1,6 @@
 /******************************************************************************
-* zstring_remove_chr.h
-* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
+* zrepchr.h
+* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -24,47 +24,41 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Description :
-*  C function to remove characters provided by a string of characters
-*  from another string
+*  C function to replace every occurrence of character 'x' within string 'str'
+*  with character 'y'.
 *
 *  Function arguments:
-*	char *zstring_remove_chr(char *str, char *b)
-*      - str is the string of char that is subject to character removal
+*	char *zstring_replace_chr((char *str, char x,char y)
+*      - str is the string of chars that is subject to character replacement
 *      process
-*      - b is a string of characters that will be removed from str. If you 
-*      wishes to remove comma and underscore from another string, then 
-*      b = ",_"
+*      - x is the character to be replaced
+*      - y is the replacement of x
 *
 *  Return values
 *      - the resulting string is returned
 *
 *  Example Usage
-*      char s[]="this is a random string to test the function.";
-*      char *b=" .";
-*      printf("%s\n",zstring_remove_chr(s,b));
+*        char s[]="this is a random string to test the function.";
+*        char x=' ', y='_';
+*        printf("%s\n",zstring_replace_chr(s,x,y));
 *
 *  Example Output
-*      thisisarandomstringtotestthefunction
+*        this_is_a_random_string_to_test_the_function.
 ******************************************************************************/
-#ifndef ZSTRING_REMOVE_CHR_H
-#define ZSTRING_REMOVE_CHR_H
+#ifndef ZSTRING_REPLACE_CHR_H
+#define ZSTRING_REPLACE_CHR_H
 
 #include <stdio.h>
-#include "zstring_search_chr.h"
 
 char *
-zstring_remove_chr(char *str,const char *b) {
-    char *p; /* pointer to the end of the string */
-    char *i; /* iterator */
-    p = i = str;
+zstring_replace_chr(char *str, char x, char y){
+    char *i = str;
 
-    while(*i){
-        if (zstring_search_chr(b,*i) == -1)
-            *p++ = *i;
+    while (*i){
+        if (*i == x)
+            *i = y;
         i++;
     }
-    *p = '\0';
-
     return str;
 }
 
