@@ -7,10 +7,10 @@ zString does not aim to replace standard library string functions, rather introd
 zString is developed by mailto:fnoyanisi@yahoo.com[Fehmi Noyan ISI]
 
 == Using zString
-Just include `zstring.h` in your source file and make sure all the header files are in your include path. For instance, for _clang_ ang _gcc_ you can use `-I` option add a directory into your include path.
+Just include `zstring.h` in your source file and make sure all the header files are in your include path. For instance, for _clang_ ang _gcc_ you can use `-I` option to add a directory into your include path.
 
 == Unit tests
-To build tests, you need to checkout https://github.com/ThrowTheSwitch/Unity[Unity test suite] and have  https://cmake.org/overview/[cmake] installed on your system.
+In order to build unit tests, you need to checkout https://github.com/ThrowTheSwitch/Unity[Unity test suite] and have  https://cmake.org/overview/[cmake] installed on your system.
 
 ....
 ~ % git clone https://github.com/fnoyanisi/zString.git         
@@ -85,9 +85,9 @@ LICENSE		src		unity
 
 == Functions and Usage 
 
-It is enough to include `zstring.h` in your code. Alternatively, any header file can be included separately for the respective function defined in it.
+It is enough to include `zstring.h` in your code. Alternatively, any header file can be included separately in order to use the function defined in it.
 
-Refer the individual header file for the function to get more details on its usage and arguments.
+Refer the individual header file for the function to get more details on the function usage and arguments.
 
 zstrchr(char *token, char s)::
 Searches for character `s` in string `token`.
