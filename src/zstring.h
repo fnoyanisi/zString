@@ -40,6 +40,7 @@
 #include "zstrtok_d.h"
 #include "zrepchr.h"
 #include "zrepstr.h"
+#include "zstrsub.h"
 #include "zstrtrm.h"
 #include "zstrtrm_l.h"
 #include "zstrtrm_r.h"

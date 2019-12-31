@@ -44,6 +44,9 @@ void setUp(void){
 
     strncpy(s1, buf1, len1);
     strncpy(s2, buf2, len2);
+
+    s1[len1] = '\0';
+    s2[len2] = '\0';
 }
 
 void tearDown(void){
@@ -123,6 +126,10 @@ void test_zstrtok(void){
     TEST_ASSERT_EQUAL_STRING("C", zstrtok(NULL,","));
 }
 
+void test_zstrsub(void){
+    TEST_ASSERT_EQUAL_STRING("is cool!", zstrsub(s2,8,8));
+}
+
 /* main program */
 int main(){
     UNITY_BEGIN();
@@ -140,6 +147,7 @@ int main(){
         RUN_TEST(test_zstrtrm);
         RUN_TEST(test_zstrtrm_none);
         RUN_TEST(test_zstrtok);
+        RUN_TEST(test_zstrsub);
     return UNITY_END();
 }
 
