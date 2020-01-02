@@ -1,5 +1,12 @@
-/******************************************************************************
-* zstrtrm_r.h
+/*!
+* \file zstrtrm_r.h
+* \brief Header file for zstrtrm_r function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -35,7 +42,7 @@
 *
 *  Example Usage
 *      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstrtrm_l(s));
+*      printf("%sLike free speech!\n",zstrtrm_r(s));
 *
 *  Example Output
 *           Free software is a matter of liberty.Like free speech!
@@ -45,6 +52,35 @@
 
 #include <string.h>
 #include <ctype.h>
+
+/*! 
+ * \brief Right trim function.
+ *
+ * \details This function removes the trailing space characters from the string
+ * given with the argument \p str.
+ * 
+ * \param str pointer to the input string
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char s[]="     Free software is a matter of liberty.     ";
+ *      printf("%sLike free speech!\\n",zstrtrm_r(s));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ *          Free software is a matter of liberty.Like free speech!
+ * \endcode
+ * 
+ * \returns zstrtrm_r function returns a pointer to the resulting string.
+ * 
+ */
 
 char *
 zstrtrm_r(char *str){

@@ -1,6 +1,13 @@
-/******************************************************************************
-* zstrtrm_l.h
-* Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
+/*!
+* \file zstrtrm_l.h
+* \brief Header file for zstrtrm_l function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2019, Fehmi Noyan ISI
+*/
+
+/*
+* Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -22,29 +29,41 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-* Description :
-*  C function to trim leading white-spaces from a character string
-*
-*  Function arguments:
-*	char *zstrtrm_l(char *str)
-*      - str is the string of char that is subject to left-trim operation 
-*
-*  Return values
-*      - the resulting string is returned
-*
-*  Example Usage
-*      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstrtrm_l(s));
-*
-*  Example Output
-*      Free software is a matter of liberty.     Like free speech!
-******************************************************************************/
+*/
 #ifndef ZSTRTRM_L_H
 #define ZSTRTRM_L_H
 
 #include <stdio.h>
 #include <ctype.h>
+
+/*! 
+ * \brief Left trim function.
+ *
+ * \details This function removes the leading space characters from the string
+ * given with the argument \p str.
+ * 
+ * \param str pointer to the input string
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char s[]="     Free software is a matter of liberty.     ";
+ *      printf("%sLike free speech!\\n",zstrtrm_l(s));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * Free software is a matter of liberty.     Like free speech!
+ * \endcode
+ * 
+ * \returns zstrtrm_l function returns a pointer to the resulting string.
+ * 
+ */
 
 char *
 zstrtrm_l(char *str){
