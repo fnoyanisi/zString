@@ -1,6 +1,12 @@
-/******************************************************************************
-* zrmvchr.h
-* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
+/*!
+* \file zrmvchr.h
+* \brief Header file for zstrchr function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2012-2019, Fehmi Noyan ISI
+*/
+
+/* Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -22,40 +28,49 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-* Description :
-*  C function to remove characters provided by a string of characters
-*  from another string
-*
-*  Function arguments:
-*	char *zrmvchr(char *str, char *b)
-*      - str is the string of char that is subject to character removal
-*      process
-*      - b is a string of characters that will be removed from str. If you 
-*      wishes to remove comma and underscore from another string, then 
-*      b = ",_"
-*
-*  Return values
-*      - the resulting string is returned
-*
-*  Example Usage
-*      char s[]="this is a random string to test the function.";
-*      char *b=" .";
-*      printf("%s\n",zrmvchr(s,b));
-*
-*  Example Output
-*      thisisarandomstringtotestthefunction
-******************************************************************************/
+*/
+
 #ifndef ZRMVCHR_H
 #define ZRMVCHR_H
 
 #include <stdio.h>
 #include "zstrchr.h"
 
+/*! 
+ * \brief Remove characters from a string.
+ *
+ * \details All characters contained in the string argument \p b are removed 
+ *  from the string given with the argument \p str.
+ * 
+ * \param str pointer to the input string
+ * \param b string containing characters to be removed
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char s[]="this is a random string to test the function.";
+ *      char *b=" .";
+ *      printf("%s\\n",zrmvchr(s,b));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * thisisarandomstringtotestthefunction
+ * \endcode
+ * 
+ * \returns zrmvchr function returns a pointer to the resulting string.
+ * 
+ */
+
 char *
-zrmvchr(char *str,const char *b) {
-    char *p; /* pointer to the end of the string */
-    char *i; /* iterator */
+zrmvchr(char *str, const char *b) {
+    char *p;
+    char *i;
     p = i = str;
 
     while(*i){

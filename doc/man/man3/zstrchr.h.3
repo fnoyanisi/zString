@@ -1,0 +1,75 @@
+.TH "zstrchr.h" 3 "Thu Jan 2 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zstrchr.h \- Header file for zstrchr function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBzstrchr\fP (const char *str, char c)"
+.br
+.RI "Locates the first occurance of a character in a string\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zstrchr function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2016-2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "int zstrchr (const char * str, char c)"
+
+.PP
+Locates the first occurance of a character in a string\&. The function looks for the first occurance of the character given by the argument \fCc\fP in the string given by the argument \fCstr\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string 
+.br
+\fIc\fP character to be located
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char *t="zString is cool!";
+     printf("%d\n",zstrchr(t,'t'));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+index = 1
+
+.fi
+.PP
+.PP
+\fBReturns\fP
+.RS 4
+zstrchr function returns the index of the first occurance of the character \fCc\fP inside the string \fCstr\fP, or -1 if the character cannot be found\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.

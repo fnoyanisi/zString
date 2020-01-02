@@ -1,0 +1,81 @@
+.TH "zrmvchr.h" 3 "Thu Jan 2 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zrmvchr.h \- Header file for zstrchr function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include 'zstrchr\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBzrmvchr\fP (char *str, const char *b)"
+.br
+.RI "Remove characters from a string\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zstrchr function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2012-2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "char* zrmvchr (char * str, const char * b)"
+
+.PP
+Remove characters from a string\&. All characters contained in the string argument \fCb\fP are removed from the string given with the argument \fCstr\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string 
+.br
+\fIb\fP string containing characters to be removed
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char s[]="this is a random string to test the function\&.";
+     char *b=" \&.";
+     printf("%s\\n",zrmvchr(s,b));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+thisisarandomstringtotestthefunction
+
+.fi
+.PP
+.PP
+\fBReturns\fP
+.RS 4
+zrmvchr function returns a pointer to the resulting string\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.

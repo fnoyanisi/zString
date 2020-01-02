@@ -126,8 +126,8 @@ void test_zstrtok(void){
     TEST_ASSERT_EQUAL_STRING("C", zstrtok(NULL,","));
 }
 
-void test_zstrsub(void){
-    TEST_ASSERT_EQUAL_STRING("is cool!", zstrsub(s2,8,8));
+void test_zsubstr(void){
+    TEST_ASSERT_EQUAL_STRING("is cool!", zsubstr(s2,8,8));
 }
 
 /* main program */
@@ -147,7 +147,7 @@ int main(){
         RUN_TEST(test_zstrtrm);
         RUN_TEST(test_zstrtrm_none);
         RUN_TEST(test_zstrtok);
-        RUN_TEST(test_zstrsub);
+        RUN_TEST(test_zsubstr);
     return UNITY_END();
 }
 

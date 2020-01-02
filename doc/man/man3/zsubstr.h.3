@@ -1,0 +1,82 @@
+.TH "zsubstr.h" 3 "Thu Jan 2 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zsubstr.h \- Header file for zsubstr function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBzsubstr\fP (const char *str, size_t pos, size_t count)"
+.br
+.RI "Returns a substring [pos, pos+count)\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zsubstr function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "char* zsubstr (const char * str, size_t pos, size_t count)"
+
+.PP
+Returns a substring [pos, pos+count)\&. The function returns the \fCcount\fP number of characters from the string \fCstr\fP starting from the location \fCpos\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string 
+.br
+\fIpos\fP position of the first character to include 
+.br
+\fIcount\fP lenght of the substring
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char str[] = "zString is cool!";
+     printf("%s\\n",zsubstr(s, 8, 8));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+is cool!
+
+.fi
+.PP
+.PP
+\fBReturns\fP
+.RS 4
+zstrchr function returns a pointer to the resulting substring or NULL if the \fCpos\fP + \fCcount\fP exceeds the bounds of the string \fCstr\fP\&. The caller must free the buffer allocated by zsubstr\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.

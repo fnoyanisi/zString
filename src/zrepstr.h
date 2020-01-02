@@ -1,5 +1,12 @@
-/******************************************************************************
-* zrepstr.h
+/*!
+* \file zrepstr.h
+* \brief Header file for zrepstr function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -21,39 +28,46 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-*  Description :
-*  Replaces every occurrence of string 'x' with string 'y' within string 'str'.
-*
-*  Function arguments:
-*	char *zrepstr(char *str, const char *x, const char *y)
-*      - str is a pointer to a NULL terminated string of characters
-*      - x is a NULL terminated string that is to be replaced 
-*      - y is a NULL terminated string that will replace the string 
-*	    pointed by 'x'
-*
-*  Return values
-*      - NULL in case any of the arguments is NULL
-*      - Modified string is returned 
-*  
-*  Notes
-*      This function only replaces part of the first string with the
-*      second one until end of the current buffer. If replacement exceeds
-*      bounds of the existing buffer, the secon string is truncated and
-*      only a part of it copied over.
-*      
-*  Example Usage
-*      char str[] = "'free' as in 'free speech', not as in 'free beer'";
-*      printf("%s\n",zrepstr(str,"free","KLMN"));
-*
-*  Example Output
-*      'KLMN' as in 'KLMN speech', not as in 'KLMN beer'";
-******************************************************************************/
+*/
+
 #ifndef ZREPSTR_H
 #define ZREPSTR_H
 
 #include <stdio.h>
 #include <string.h>
+
+/*! 
+ * \brief Replaces a string with another one.
+ *
+ * \details Every occurance of the string given by the argument \p x contained 
+ *  in the first argument \p str is replaced by the string given by the 
+ * argument \p y.
+ * 
+ * \param str pointer to the input string
+ * \param x a NULL terminated string that is to be replaced 
+ * \param y a NULL terminated string that will replace the string pointed 
+ * by \p x
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char str[] = "free as in free speech, not as in free beer";
+ *      printf("%s\\n",zrepstr(str,"free","KLMN"));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * KLMN as in KLMN speech, not as in KLMN beer
+ * \endcode
+ * 
+ * \returns zrepstr function returns a pointer to the resulting string.
+ * 
+ */
 
 char *
 zrepstr(char *str, const char *x, const char *y){

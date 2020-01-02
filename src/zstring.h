@@ -1,5 +1,13 @@
-/******************************************************************************
-* zstring.h
+/*!
+* \file zstring.h
+* \brief Main header file for zString library.
+* \details You can include this file in your source or individual header 
+* file for the function you are using. All the functions defined in this 
+* library can be distributed under the 2-Clause BSD license.
+* \copyright 2012-2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2012-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -22,13 +30,7 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-*  Description :
-*  Main include file for zString string library. You can explicitly include
-*  the header file for any particular function or include this file only once.
-*  For ease of use, it is recommended to include this file instead of
-*  including each header for a particular function.
-******************************************************************************/
+*/
 #ifndef ZSTRING_H
 #define ZSTRING_H
 
@@ -40,7 +42,7 @@
 #include "zstrtok_d.h"
 #include "zrepchr.h"
 #include "zrepstr.h"
-#include "zstrsub.h"
+#include "zsubstr.h"
 #include "zstrtrm.h"
 #include "zstrtrm_l.h"
 #include "zstrtrm_r.h"

@@ -1,0 +1,82 @@
+.TH "zrepstr.h" 3 "Thu Jan 2 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zrepstr.h \- Header file for zrepstr function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBzrepstr\fP (char *str, const char *x, const char *y)"
+.br
+.RI "Replaces a string with another one\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zrepstr function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2016-2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "char* zrepstr (char * str, const char * x, const char * y)"
+
+.PP
+Replaces a string with another one\&. Every occurance of the string given by the argument \fCx\fP contained in the first argument \fCstr\fP is replaced by the string given by the argument \fCy\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string 
+.br
+\fIx\fP a NULL terminated string that is to be replaced 
+.br
+\fIy\fP a NULL terminated string that will replace the string pointed by \fCx\fP 
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char str[] = "free as in free speech, not as in free beer";
+     printf("%s\\n",zrepstr(str,"free","KLMN"));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+KLMN as in KLMN speech, not as in KLMN beer
+
+.fi
+.PP
+.PP
+\fBReturns\fP
+.RS 4
+zrepstr function returns a pointer to the resulting string\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.

@@ -1,5 +1,12 @@
-/******************************************************************************
-* zrepchr.h
+/*!
+* \file zrepchr.h
+* \brief Header file for zrepchr function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2016-2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -22,29 +29,41 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-* Description :
-*  C function to replace every occurrence of character 'x' within string 'str'
-*  with character 'y'.
-*
-*  Function arguments:
-*	char *zrepchr((char *str, char x,char y)
-*      - str is the string of chars that is subject to character replacement
-*      process
-*      - x is the character to be replaced
-*      - y is the replacement of x
-*
-*  Return values
-*      - the resulting string is returned
-*
-*  Example Usage
-*        char s[]="this is a random string to test the function.";
-*        char x=' ', y='_';
-*        printf("%s\n",zrepchr(s,x,y));
-*
-*  Example Output
-*        this_is_a_random_string_to_test_the_function.
-******************************************************************************/
+*/
+
+/*! 
+ * \brief Replaces a character with another one.
+ *
+ * \details Every occurance of the character given by the argument \p x contained 
+ *  in the first argument \p str is replaced by the character given by the 
+ * argument \p y.
+ * 
+ * \param str pointer to the input string
+ * \param x the character to be replaced
+ * \param y the character that will replace the character given by \p x
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char s[]="this is a random string to test the function.";
+ *      char x=' ', y='_';
+ *      printf("%s\n",zrepchr(s,x,y));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * this_is_a_random_string_to_test_the_function.
+ * \endcode
+ * 
+ * \returns zrepchr function returns a pointer to the resulting string.
+ * 
+ */
+
 #ifndef ZREPCHR_H
 #define ZREPCHR_H
 

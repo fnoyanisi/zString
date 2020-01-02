@@ -1,5 +1,12 @@
-/******************************************************************************
-* zstrchr.h
+/*!
+* \file zstrchr.h
+* \brief Header file for zstrchr function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2012-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -22,31 +29,41 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-* Description :
-*  C function that searches the existence of a particular character in
-*  given character string
-*
-*  Function arguments:
-*	int zstrchr(char *st, char c)
-*      - str is the string of chars in which character c will be searched
-*      - c is a single character that will be searched within string
-*
-*  Return values
-*      - (-1) will be returned if either of string or c is NULL or c cannot
-*      be found in the string
-*      - index of c is returned if c is found in string, indexing starts from
-*      zero
-*
-*  Example Usage
-*      char *t="zString is cool!";
-*      printf("%d\n",zstrchr(t,'t'));
-*
-*  Example Output
-*      1
-******************************************************************************/
+*/
 #ifndef ZSTRCHR_H
 #define ZSTRCHR_H
+
+/*! 
+ * \brief Locates the first occurance of a character in a string.
+ *
+ * \details The function looks for the first occurance of the character given
+ * by the argument \p c in the string given by the argument \p str.
+ * 
+ * \param str pointer to the input string
+ * \param c character to be located
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char *t="zString is cool!";
+ *      printf("%d\n",zstrchr(t,'t'));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * index = 1
+ * \endcode
+ * 
+ * \returns zstrchr function returns the index of the first occurance of the
+ * character \p c inside the string \p str, or -1 if the character cannot be 
+ * found.
+ * 
+ */
 
 int 
 zstrchr(const char *str, char c){

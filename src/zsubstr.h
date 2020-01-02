@@ -1,5 +1,12 @@
-/******************************************************************************
-* zstrsub.h
+/*!
+* \file zsubstr.h
+* \brief Header file for zsubstr function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2019, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2019, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -22,35 +29,48 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-*  Description :
-*  Returns a substring [pos, pos+count). 
-*
-*  Function arguments:
-*	char *zstrsub(const char *str, size_t pos, size_t count)
-*      - str is a pointer to a NULL terminated string of characters
-*      - pos is the position of the first character to include
-*      - count is the length of the substring
-*
-*  Return values
-*      - A pointer to the start of the NULL terminated substring
-*      - NULL if pos + count exceeds the bounds of the string str
-*
-*  Example Usage
-*      char str[] = "zString is cool!";
-*      printf("1 %s\n",zstrsub(s, 8, 8));
-*
-*  Example Output
-*      is cool!
-******************************************************************************/
-#ifndef ZSTRSUB_H
-#define ZSTRSUB_H
+*/
+#ifndef ZSUBSTR_H
+#define ZSUBSTR_H
 
 #include <stdio.h>
 #include <string.h>
 
+/*! 
+ * \brief Returns a substring [pos, pos+count).
+ *
+ * \details The function returns the \p count number of characters from the
+ * string \p str starting from the location \p pos.
+ * 
+ * \param str pointer to the input string
+ * \param pos position of the first character to include
+ * \param count lenght of the substring
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char str[] = "zString is cool!";
+ *      printf("%s\\n",zsubstr(s, 8, 8));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * is cool!
+ * \endcode
+ * 
+ * \returns zstrchr function returns a pointer to the resulting substring or 
+ * NULL if the \p pos + \p count exceeds the bounds of the string \p str. 
+ * The caller must free the buffer allocated by zsubstr.
+ * 
+ */
+
 char *
-zstrsub(const char *str, size_t pos, size_t count) {
+zsubstr(const char *str, size_t pos, size_t count) {
     return ((pos + count) <= strlen(str))? (strndup((str+pos), count)) : NULL;
 }
 

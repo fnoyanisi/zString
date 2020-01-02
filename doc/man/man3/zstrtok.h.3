@@ -1,0 +1,102 @@
+.TH "zstrtok.h" 3 "Thu Jan 2 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zstrtok.h \- Header file for zstrtok function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBzstrtok\fP (char *str, const char *delim)"
+.br
+.RI "zstrtok function is used to tokenize the string \fCstr\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zstrtok function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2012-2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "char* zstrtok (char * str, const char * delim)"
+
+.PP
+zstrtok function is used to tokenize the string \fCstr\fP\&. This function uses a static buffer and argument \fCdelimd\fP to isolate requential tokens in a null terminated string \fCstr\fP\&. Some notable differences between \fI\fBzstrtok()\fP\fP and \fIstrtok()\fP function from standard library are;
+.IP "\(bu" 2
+Unlike \fIstrtok()\fP, \fI\fBzstrtok()\fP\fP returns \fCdelim\fP in case of consecutive delimiters\&.
+.IP "\(bu" 2
+Unlike \fIstrtok()\fP, \fI\fBzstrtok()\fP\fP accepts only single char delim
+.IP "\(bu" 2
+\fIstrtok()\fP returns NULL if no token is found whereas \fI\fBzstrtok()\fP\fP returns input str (see Return values section below)
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string 
+.br
+\fIdelim\fP a string with strlen = 1 and containing only the char to be used as the delimiter for tokenising
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char str[] = "A,B,,,C";
+     printf("1 %s\n",zstrtok(s,","));
+     printf("2 %s\n",zstrtok(NULL,","));
+     printf("3 %s\n",zstrtok(NULL,","));
+     printf("4 %s\n",zstrtok(NULL,","));
+     printf("5 %s\n",zstrtok(NULL,","));
+     printf("6 %s\n",zstrtok(NULL,","));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+1 A
+2 B
+3 ,
+4 ,
+5 C
+6 (null)
+
+.fi
+.PP
+.PP
+\fBWarning\fP
+.RS 4
+Since a static buffer is used, nested calls may give unexpected results and the function is not thread safe\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+zstrtok function returns a pointer to the next token in \fCstr\fP or NULL if end of the string is reached\&. If there is no tokens founds, \fCstr\fP is returned\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.
