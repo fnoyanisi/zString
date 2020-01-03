@@ -39,7 +39,7 @@
 #include "zstrchr.h"
 #include "zrmvchr.h"
 #include "zstrtok.h"
-#include "zstrtok_d.h"
+#include "zstrtok_q.h"
 #include "zrepchr.h"
 #include "zrepstr.h"
 #include "zsubstr.h"

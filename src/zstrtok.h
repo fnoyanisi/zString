@@ -92,7 +92,6 @@ char *
 zstrtok(char *str, const char *delim) {
     static char *s_str = NULL;   /* var to store last address */
     char *p;
-    size_t len;
 
     if (delim == NULL || (str == NULL && s_str == NULL)){
         return NULL;
@@ -101,8 +100,6 @@ zstrtok(char *str, const char *delim) {
     if (str == NULL){
         str = s_str;
     }
-
-    len = strlen(str);
 
     /* if delim is not contained in str, return str */
     if ((p = strstr(str,delim)) == NULL) {

@@ -1,0 +1,78 @@
+.TH "zstrtrm_r.h" 3 "Fri Jan 3 2020" "zString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+zstrtrm_r.h \- Header file for zstrtrm_r function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include <ctype\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBzstrtrm_r\fP (char *str)"
+.br
+.RI "Right trim function\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for zstrtrm_r function\&. 
+
+Functions defined in this file can be distributed under the 2-Clause BSD license\&. 
+.PP
+\fBCopyright\fP
+.RS 4
+2016-2019, Fehmi Noyan ISI 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "char* zstrtrm_r (char * str)"
+
+.PP
+Right trim function\&. This function removes the trailing space characters from the string given with the argument \fCstr\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP pointer to the input string
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+#include <stdio\&.h>
+#include <zstring\&.h>
+
+int main() {
+     char s[]="     Free software is a matter of liberty\&.     ";
+     printf("%sLike free speech!\\n",zstrtrm_r(s));
+     return 0;
+}
+
+.fi
+.PP
+.PP
+\fBOutput\fP 
+.PP
+.nf
+Free software is a matter of liberty\&.Like free speech!
+
+.fi
+.PP
+.PP
+\fBReturns\fP
+.RS 4
+zstrtrm_r function returns a pointer to the resulting string\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for zString from the source code\&.

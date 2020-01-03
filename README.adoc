@@ -100,10 +100,6 @@ zstrtok(char *str, const char *delim)::
 An alternative to standard library's `strtok()` function that is also capable of
 handling successive delimiters.
 
-zstrtok_d(char *str, const char *delim, const char quote)::
-Extended version of `zStrtok()` that treats any text enclosed within `quote`
-characters as a single entry even if `delim` is included in it. 
-
 zrepchr(char *str, char x, char y)::
 Replaces every occurrence of character `x` with character `y` within string `str`.
 

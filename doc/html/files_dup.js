@@ -7,8 +7,8 @@ var files_dup =
     [ "zstring.h", "zstring_8h.html", "zstring_8h" ],
     [ "zstrtok.h", "zstrtok_8h.html", "zstrtok_8h" ],
     [ "zstrtok_d.h", "zstrtok__d_8h_source.html", null ],
-    [ "zstrtrm.h", "zstrtrm_8h_source.html", null ],
-    [ "zstrtrm_l.h", "zstrtrm__l_8h_source.html", null ],
-    [ "zstrtrm_r.h", "zstrtrm__r_8h_source.html", null ],
+    [ "zstrtrm.h", "zstrtrm_8h.html", "zstrtrm_8h" ],
+    [ "zstrtrm_l.h", "zstrtrm__l_8h.html", "zstrtrm__l_8h" ],
+    [ "zstrtrm_r.h", "zstrtrm__r_8h.html", "zstrtrm__r_8h" ],
     [ "zsubstr.h", "zsubstr_8h.html", "zsubstr_8h" ]
 ];

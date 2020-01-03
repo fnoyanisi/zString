@@ -1,5 +1,12 @@
-/******************************************************************************
-* zstrtrm.h
+/*!
+* \file zstrtrm.h
+* \brief Header file for zstrtrm function.
+* \details Functions defined in this file can be distributed under the 
+* 2-Clause BSD license.
+* \copyright 2016-2018, Fehmi Noyan ISI
+*/
+
+/*
 * Copyright (c) 2016-2018, Fehmi Noyan ISI fnoyanisi@yahoo.com
 * All rights reserved.
 *
@@ -22,30 +29,41 @@
 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*
-* Description :
-*  C function to trim leading and trailing white-spaces from a character
-*  string
-*
-*  Function arguments:
-*	char *zstrtrm(char *str)
-*      - str is the string of char that is subject to trim operation 
-*
-*  Return values
-*      - the resulting string is returned
-*
-*  Example Usage
-*      char s[]="     Free software is a matter of liberty.     ";
-*      printf("%sLike free speech!\n",zstrtrm(s));
-*
-*  Example Output
-*      Free software is a matter of liberty.Like free speech!
-******************************************************************************/
+*/
 #ifndef ZSTRTRM_H
 #define ZSTRTRM_H
 
 #include "zstrtrm_l.h"
 #include "zstrtrm_r.h"
+
+/*! 
+ * \brief Trim function.
+ *
+ * \details This function removes the trailing and leading space characters
+ * from the string given by the \p str argument.
+ * 
+ * \param str pointer to the input string
+ * 
+ * \b Example
+ * \code{.c}
+ * #include <stdio.h>
+ * #include <zstring.h>
+ * 
+ * int main() {
+ *      char s[]="     Free software is a matter of liberty.     ";
+ *      printf("%sLike free speech!\\n",zstrtrm(s));
+ *      return 0;
+ * }
+ * \endcode
+ * 
+ * \b Output 
+ * \code{.unparsed}
+ * Free software is a matter of liberty.Like free speech!
+ * \endcode
+ * 
+ * \returns zstrtrm function returns a pointer to the resulting string.
+ * 
+ */
 
 char *
 zstrtrm(char *str){
