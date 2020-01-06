@@ -33,6 +33,8 @@ LICENSE		src		unity
 ** added Unity test suite for unit tests
 ** using standard library functions
 ** changed function and header file names
+** added doxygen documentation
+** removed zstrtok_q() function
 
 * *version 1.8.3 - (Aug 2018)*   
 ** minor changes to improve run time
